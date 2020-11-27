@@ -91,8 +91,8 @@ export default {
         formData.append("entry.1714591256", this.$store.state.form__A2)
         formData.append("entry.967671219", this.$store.state.form__A3)
         formData.append("entry.504873069", this.$store.state.form__A4)
-      //  formData.append("entry.1387847984", this.startTime)
-      //  formData.append("entry.1308726562", this.endTime)
+        formData.append("entry.1387847984", this.startTime)
+        formData.append("entry.1308726562", this.endTime)
         formData.append("entry.1317767142", this.$store.state.ipAddress)
         formData.append("entry.1247262667", this.$store.state.form__B6)
 
