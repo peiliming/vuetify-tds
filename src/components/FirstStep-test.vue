@@ -7,7 +7,7 @@
           <!-- production entry.1387847984-->
           <v-text-field
             v-model="startTime"
-            name="entry.1387847984"
+            name="entry.892247121"
             label="開始時刻"
             placeholder="00:00"
             v-show="show"
@@ -17,7 +17,7 @@
           <!-- production entry.1317767142-->
           <v-text-field
             v-model="ipAddress"
-            name="entry.1317767142"
+            name="entry.378388197"
             label="IPアドレス"
             v-show="show"
             required
@@ -26,16 +26,15 @@
           <!-- production entry.405864373-->
           <v-text-field
             v-model="email"
-            name="entry.405864373"
+            name="entry.2115424323"
             label="メールアドレス"
             :rules="emailRules"
             required
           ></v-text-field>
 
-
             <!-- production entry.1989060872-->
             <h3>【A-1-a】ご回答者様の所属されている組織が主に取り扱う業務は以下のいずれに該当するかお答えください</h3>
-            <v-radio-group row v-model="form__A1a" name="entry.1989060872" color="info">
+            <v-radio-group row v-model="form__A1a" name="entry.1039878880" color="info">
               <v-radio
                 label="J-REITの運用"
                 value="J-REITの運用"
@@ -55,18 +54,15 @@
             <v-radio-group row color="info">
               <v-radio
               v-model="form__A1b"
-              name="entry.1878965843"
                 label="アクイジション"
                 value="アクイジション"
               ></v-radio>
               <v-radio
               v-model="form__A1b"
-                name="entry.1878965843"
                 label="期中運用"
                 value="期中運用"
               ></v-radio>
               <v-radio
-              name="entry.1878965843"
                 @change="radioChange"
                 id="radioInput"
                 label="その他:"
@@ -74,20 +70,20 @@
               ></v-radio>
               <v-text-field
                 id="test"
-                v-model="test"
                 :disabled="isDisabled"
                 label="その他の場合は入力してください"
                 name="entry.1601078361.other_option_response"
                 required
               ></v-text-field>
             </v-radio-group>
+            {{form__A1b}}
 
             <!-- production entry.334413620-->
             <h3>【A-1-c】ご回答者様が過去にご担当された経験のある分野をすべてお答えください（複数回答）</h3>
             <v-radio-group row>
               <v-checkbox
                 v-model="form__A1c"
-                name="entry.334413620"
+                name="entry.1079840559"
                 value="アクイジション"
                 label="アクイジション"
                 type="checkbox"
@@ -96,7 +92,7 @@
               ></v-checkbox>
               <v-checkbox
                 v-model="form__A1c"
-                name="entry.334413620"
+                name="entry.1079840559"
                 value="期中運用"
                 label="期中運用"
                 type="checkbox"
@@ -105,7 +101,7 @@
               ></v-checkbox>
               <v-checkbox
                 v-model="form__A1c"
-                name="entry.334413620"
+                name="entry.1079840559"
                 value="その他:"
                 label="その他:"
                 type="checkbox"
@@ -118,13 +114,15 @@
                 required
               ></v-text-field>
             </v-radio-group>
+      {{form__A1c}}
+
 
             <!-- production entry.1714591256-->
             <h3>《A-2ご回答者様がお持ちの資格をすべてお答えください（複数回答）》</h3>
             <v-radio-group row>
               <v-checkbox
                 v-model="form__A2"
-                name="entry.1714591256"
+                name="entry.994087084"
                 value="宅地建物取引士"
                 label="宅地建物取引士"
                 type="checkbox"
@@ -133,7 +131,7 @@
               ></v-checkbox>
               <v-checkbox
                 v-model="form__A2"
-                name="entry.1714591256"
+                name="entry.994087084"
                 value="不動産証券化マスター"
                 label="不動産証券化マスター"
                 type="checkbox"
@@ -142,7 +140,7 @@
               ></v-checkbox>
               <v-checkbox
                 v-model="form__A2"
-                name="entry.1714591256"
+                name="entry.994087084"
                 value="不動産鑑定士"
                 label="不動産鑑定士"
                 type="checkbox"
@@ -151,7 +149,7 @@
               ></v-checkbox>
               <v-checkbox
                 v-model="form__A2"
-                name="entry.1714591256"
+                name="entry.994087084"
                 value="その他:"
                 label="その他:"
                 type="checkbox"
@@ -160,10 +158,11 @@
               ></v-checkbox>
               <v-text-field
                 label="その他の場合は入力してください"
-                name="entry.1714591256.other_option_response"
+                name="entry.994087084.other_option_response"
                 required
               ></v-text-field>
             </v-radio-group>
+      {{form__A2}}
 
             <!-- production entry.967671219-->
             <v-card-text>
@@ -171,7 +170,7 @@
             </v-card-text>
             <v-select
                   v-model="form__A3"
-                  name="entry.967671219"
+                  name="entry.265022917"
                   :items="items"
                   label="選択"
                   data-vv-name="選択"
@@ -182,7 +181,7 @@
 
             <!-- production entry.504873069-->
             <h3>《A-4現在までに不動産投資関連の業務に従事された経験年数を記入してください》</h3>
-            <v-radio-group row v-model="form__A4" name="entry.504873069" color="info">
+            <v-radio-group row v-model="form__A4" name="entry.802469403" color="info">
               <v-radio
                 label="5年未満"
                 value="5年未満"
@@ -229,7 +228,6 @@ export default {
   data() {
     return {
       isDisabled: true,
-      test: '',
       show: false,
       items: [
         '経営層・役員クラス',
@@ -260,7 +258,7 @@ export default {
       } else {
         this.isDisabled = true
       }
-    }
+    },
   },
   mounted() {
     axios.get('https://bwbwepmxj5.execute-api.ap-northeast-1.amazonaws.com/production/sourceip/')

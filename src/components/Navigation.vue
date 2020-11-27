@@ -70,6 +70,7 @@ export default {
     //dev https://docs.google.com/forms/d/e/1FAIpQLSfCG2wwK__IZB5F8GkcTnu-k6nFSpZ6ABbPjvaG8bsLyctdjg/formResponse -->
         const formData = new FormData();
         // dev用
+        /*
         formData.append("entry.2115424323", this.$store.state.email)
         formData.append("entry.1039878880", this.$store.state.form__A1a)
         formData.append("entry.1601078361", this.$store.state.form__A1b)
@@ -81,9 +82,8 @@ export default {
       //  formData.append("entry.2060477936", this.endTime)
         formData.append("entry.378388197", this.$store.state.ipAddress)
         formData.append("entry.366166243", this.$store.state.form__B6)
-        formData.append("entry.1601078361.other_option_response", this.$store.state.test)
+        formData.append("entry.1601078361.other_option_response", this.$store.state.test)*/
         //prod用
-        /*
         formData.append("entry.405864373", this.$store.state.email)
         formData.append("entry.1989060872", this.$store.state.form__A1a)
         formData.append("entry.1878965843", this.$store.state.form__A1b)
@@ -91,10 +91,10 @@ export default {
         formData.append("entry.1714591256", this.$store.state.form__A2)
         formData.append("entry.967671219", this.$store.state.form__A3)
         formData.append("entry.504873069", this.$store.state.form__A4)
-        formData.append("entry.1387847984", this.startTime)
-        formData.append("entry.1308726562", this.endTime)
+      //  formData.append("entry.1387847984", this.startTime)
+      //  formData.append("entry.1308726562", this.endTime)
         formData.append("entry.1317767142", this.$store.state.ipAddress)
-        formData.append("entry.1247262667", this.$store.state.form__B6)*/
+        formData.append("entry.1247262667", this.$store.state.form__B6)
 
         for (let i = 0; i<this.$store.state.SecondStepValues.length;i++) {
           formData.append(this.$store.state.SecondStepValues[i].name, this.$store.state.SecondStepValues[i].saveValue)
@@ -124,7 +124,7 @@ export default {
         // CORSエラー対策
         const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
         // Googleフォームのaction属性値
-        const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSfCG2wwK__IZB5F8GkcTnu-k6nFSpZ6ABbPjvaG8bsLyctdjg/formResponse"
+        const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdpO8F3_ZyVfYMme7FAANIr6ZeRXssloVediPxJBpmHwgfpgg/formResponse"
 
         // Ajax POST通信
         axios.post(CORS_PROXY + GOOGLE_FORM_ACTION, formData, {

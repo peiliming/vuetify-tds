@@ -32,7 +32,7 @@
             <p>本アンケート調査の結果の概要ご希望の場合はお送りいたしますので、以下欄にチェックを入れてください。</p>
             <v-checkbox
               v-model="form__B6"
-              name="entry.1247262667"
+              name="entry.366166243"
               value="希望する"
               label="希望する"
               type="checkbox"
@@ -43,7 +43,7 @@
           <!-- production entry.1308726562-->
           <v-text-field
             v-model="endTime"
-            name="entry.1308726562"
+            name="entry.2060477936"
             label="終了時刻"
             placeholder="00:00"
             v-show="show"
