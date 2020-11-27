@@ -32,6 +32,9 @@
 
 <script>
 import axios from "axios"
+//import Vue from 'vue'
+//import { VueReCaptcha } from 'vue-recaptcha-v3'
+//Vue.use(VueReCaptcha, { siteKey: '6LfJ_O4ZAAAAAAvk4F_xjPowZtGeLkGynHigESiC' })
 export default {
   name: 'Navigation',
   data() {
@@ -43,10 +46,21 @@ export default {
     }
   },
   methods: {
+  //  async recaptcha() {
+      // (optional) Wait until recaptcha has been loaded.
+  //    await this.$recaptchaLoaded()
+ 
+      // Execute reCAPTCHA with action "login".
+  //    const token = await this.$recaptcha('login')
+  //    console.log(token)
+ 
+      // Do stuff with the received token.
+  //  },
     submit: function () {
       if(this.submitProcessing) {
         return;
       }
+    //  this.recaptcha()
       this.submitProcessing = true
       /* form本体actionを使う場合の処理
       var typeChange = document.getElementById("submitButton").setAttribute('type', 'submit')
@@ -94,13 +108,18 @@ export default {
         for (let i = 0; i<this.$store.state.FifthStepValues.length;i++) {
           formData.append(this.$store.state.FifthStepValues[i].name, this.$store.state.FifthStepValues[i].saveValue)
         }
+        for (let i = 0; i<this.$store.state.FifthStepValuesCalculation.length;i++) {
+          formData.append(this.$store.state.FifthStepValuesCalculation[i].name, this.$store.state.FifthStepValuesCalculation[i].saveValue)
+        }
+        for (let i = 0; i<this.$store.state.FifthStepValuesCalculationSec.length;i++) {
+          formData.append(this.$store.state.FifthStepValuesCalculationSec[i].name, this.$store.state.FifthStepValuesCalculationSec[i].saveValue)
+        }
         for (let i = 0; i<this.$store.state.SixthStepValues.length;i++) {
           formData.append(this.$store.state.SixthStepValues[i].name, this.$store.state.SixthStepValues[i].saveValue)
         }
         for (let i = 0; i<this.$store.state.SeventhStepValues.length;i++) {
           formData.append(this.$store.state.SeventhStepValues[i].name, this.$store.state.SeventhStepValues[i].saveValue)
         }
-
 
         // CORSエラー対策
         const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"

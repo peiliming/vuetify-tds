@@ -24,9 +24,6 @@ export default new Vuex.Store({
     form__A4: '',
     form__B6: [],
     test: '',
-    form__B4b1:'1',
-    form__B4b2:'2',
-    form__B4b3:'3',
     SecondStepValues: [
       {
         heading: '【B-1-a】エリア オフィスビルの立地するエリア（サブマーケット）の品質に関して、以下の各要素がどの程度重要であるかをお答えください。',
@@ -412,15 +409,6 @@ export default new Vuex.Store({
     },
     setIP(state, payload) {
       state.ipAddress = payload.ipAddress;
-    },
-    setFormB4b1(state, payload) {
-      state.form__B4b1 = payload.form__B4b1;
-    },
-    setFormB4b2(state, payload) {
-      state.form__B4b2 = payload.form__B4b2;
-    },
-    setFormB4b3(state, payload) {
-      state.form__B4b3 = payload.form__B4b3;
     },
   },
   actions: {
