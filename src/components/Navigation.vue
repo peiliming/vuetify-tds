@@ -21,9 +21,13 @@
       </v-col>
 
       <v-col cols=3>
-        <v-btn width="180" text-align="center" large id="submitButton" @click="navigateNext()" :disabled="submitProcessing">
+      <v-btn width="180" text-align="center" large id="submitButton" @click="navigateNext()" :disabled="$emit.invalid">
+      <!--  <v-btn width="180" text-align="center" large id="submitButton" @click="getAllValidationResult" :disabled="this.ref.invalid">-->
           {{ nextButtonText() }}
         </v-btn>
+        <p v-show="submitProcessing">
+          必須項目は全て入力してください
+        </p>
       </v-col>
     </v-row>
 
@@ -62,6 +66,7 @@ export default {
       }
     //  this.recaptcha()
       this.submitProcessing = true
+
       /* form本体actionを使う場合の処理
       var typeChange = document.getElementById("submitButton").setAttribute('type', 'submit')
       return typeChange
@@ -149,6 +154,30 @@ export default {
         // フォーム非表示
       //  this.showForm = false;
     },
+    validateAllForms: async function () {
+
+        // $validator.validateAll() は、エラーがなければ true が返る
+        // 一つでもエラーがあれば false が返る
+
+        const isOkForm = await this.form.$validator.validateAll()
+
+        // すべての await が処理されたら return
+
+        return isOkForm
+    },
+    getAllValidationResult () {
+        this.validateAllForms()
+          .then((response) => {
+
+            // すべてのフォームでエラーがなければ response は true になる
+
+            if (response) {
+
+                // 全フォームでエラーがない場合の処理
+
+            }
+          })
+    },
     getTime() {
       var d = new Date();
       var hh = d.getHours();
@@ -176,7 +205,6 @@ export default {
       { return '次へ'}
       else if( this.$route.name === 'seventhStep' ){ return '送信'}
       else {return '次へ'}
-
     },
 
     isFirst() {
@@ -228,6 +256,9 @@ export default {
     }
   },
   computed: {
+    getTest() {
+      this.$emit
+    }
   }
 }
 

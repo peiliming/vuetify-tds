@@ -8,6 +8,10 @@
               <h4>{{SecondStepValue.title}}</h4>
             </v-col>
             <v-col cols="8">
+              <validation-provider
+                v-slot="{ errors }"
+                rules="required"
+              >
               <v-radio-group row :name="SecondStepValue.name" v-model="SecondStepValue.saveValue" color="info">
                 <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
                 :label="radioItem.label"
@@ -15,9 +19,14 @@
                 >
                 </v-radio>
               </v-radio-group>
+            <v-alert type="error" v-show="errors.length" class="error_message">
+              {{ errors[0] }}
+            </v-alert>
+            </validation-provider>
             </v-col>
           </v-row>
       </v-container>
+
     </v-card-text>
 </div>
 
@@ -31,6 +40,12 @@ export default {
   data() {
     return {
     }
+  },
+  methods: {
+    validateField() {
+            // Validate the field
+            return this.$refs.myinput.validate();
+        }
   },
   computed: {
     SecondStepValues: {
