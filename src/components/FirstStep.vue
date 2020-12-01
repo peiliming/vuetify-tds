@@ -1,261 +1,258 @@
 <template>
   <div id="first-step">
-      <v-card-text>
-        <v-container>
-          <h3>ご回答者様のご勤務先のメールアドレスを入力ください ※個人情報保護方針：<a href="https://proptech.plus/privacy/">https://proptech.plus/privacy/</a></h3>
+    <h3>ご回答者様のご勤務先のメールアドレスを入力ください ※個人情報保護方針：<a href="https://proptech.plus/privacy/">https://proptech.plus/privacy/</a></h3>
 
-          <!-- production entry.1317767142-->
-          <v-text-field
-            v-model="ipAddress"
-            name="entry.378388197"
-            label="IPアドレス"
-            v-show="show"
+    <!-- production entry.1317767142-->
+    <v-text-field
+      v-model="ipAddress"
+      name="entry.378388197"
+      label="IPアドレス"
+      v-show="show"
+      required
+    ></v-text-field>
+
+
+    <!-- production entry.405864373-->
+    <validation-provider
+      v-slot="{ errors }"
+      rules="required"
+      name="メールアドレス"
+    >
+    <v-text-field
+      v-model="email"
+      name="entry.2115424323"
+      label="メールアドレス"
+      required
+    ></v-text-field>
+    <v-alert type="error" v-show="errors.length" class="error_message">
+      {{ errors[0] }}
+    </v-alert>
+    </validation-provider>
+
+      <!-- production entry.1989060872-->
+      <validation-provider
+        v-slot="{ errors }"
+        rules="required"
+        name="「A-1-a」の項目"
+      >
+      <h3>【A-1-a】ご回答者様の所属されている組織が主に取り扱う業務は以下のいずれに該当するかお答えください</h3>
+      <v-radio-group row v-model="form__A1a" name="entry.1039878880" color="info">
+        <v-radio
+          label="J-REITの運用"
+          value="J-REITの運用"
+        ></v-radio>
+        <v-radio
+          label="私募REITの運用"
+          value="私募REITの運用"
+        ></v-radio>
+        <v-radio
+          label="その他"
+          value="その他"
+        ></v-radio>
+      </v-radio-group>
+      <v-alert type="error" v-show="errors.length" class="error_message">
+        {{ errors[0] }}
+      </v-alert>
+      </validation-provider>
+
+      <!-- production entry.1878965843-->
+      <validation-provider
+        v-slot="{ errors }"
+        rules="required"
+        name="「A-1-b」の項目"
+      >
+      <h3>【A-1-b】ご回答者様の現在の主な担当分野をお答えください</h3>
+      <v-radio-group row color="info" v-model="form__A1b" name="1601078361">
+        <v-radio
+          label="アクイジション"
+          value="アクイジション"
+        ></v-radio>
+        <v-radio
+          label="期中運用"
+          value="期中運用"
+        ></v-radio>
+        <v-radio
+          @change="radioChange"
+          label="その他:"
+          value="その他:"
+        ></v-radio>
+      </v-radio-group>
+      <v-alert type="error" v-show="errors.length" class="error_message">
+      {{ errors[0] }}
+    </v-alert>
+      </validation-provider>
+      {{form__A1b}}
+
+      <validation-provider
+        v-slot="{ errors }"
+        rules="required"
+        name="「A-1-c」の項目"
+      >
+      <!-- production entry.334413620-->
+      <h3>【A-1-c】ご回答者様が過去にご担当された経験のある分野をすべてお答えください（複数回答）</h3>
+      <v-radio-group row>
+        <v-checkbox
+          v-model="form__A1c"
+          name="entry.1079840559"
+          value="アクイジション"
+          label="アクイジション"
+          type="checkbox"
+          :rules="[v => !!v || 'You must agree to continue!']"
+          required>
+        ></v-checkbox>
+        <v-checkbox
+          v-model="form__A1c"
+          name="entry.1079840559"
+          value="期中運用"
+          label="期中運用"
+          type="checkbox"
+          :rules="[v => !!v || 'You must agree to continue!']"
+          required>
+        ></v-checkbox>
+        <v-checkbox
+          v-model="form__A1c"
+          hide-details
+          name="entry.1079840559"
+          value="その他:"
+          label="その他:"
+          type="checkbox"
+          :rules="[v => !!v || 'You must agree to continue!']"
+          required>
+        ></v-checkbox>
+        <v-text-field
+          :disabled="!enabled"
+          label="その他の場合は入力してください"
+          name="entry.1079840559.other_option_response"
+          required
+        ></v-text-field>
+      </v-radio-group>
+      <v-alert type="error" v-show="errors.length" class="error_message">
+        {{ errors[0] }}
+      </v-alert>
+      </validation-provider>
+  {{form__A1c}}
+
+      <validation-provider
+        v-slot="{ errors }"
+        rules="required"
+        name="「A-2」の項目"
+      >
+      <!-- production entry.1714591256-->
+      <h3>《A-2ご回答者様がお持ちの資格をすべてお答えください（複数回答）》</h3>
+      <v-radio-group row>
+        <v-checkbox
+          v-model="form__A2"
+          name="entry.994087084"
+          value="宅地建物取引士"
+          label="宅地建物取引士"
+          type="checkbox"
+          :rules="[v => !!v || 'You must agree to continue!']"
+          required>
+        ></v-checkbox>
+        <v-checkbox
+          v-model="form__A2"
+          name="entry.994087084"
+          value="不動産証券化マスター"
+          label="不動産証券化マスター"
+          type="checkbox"
+          :rules="[v => !!v || 'You must agree to continue!']"
+          required>
+        ></v-checkbox>
+        <v-checkbox
+          v-model="form__A2"
+          name="entry.994087084"
+          value="不動産鑑定士"
+          label="不動産鑑定士"
+          type="checkbox"
+          :rules="[v => !!v || 'You must agree to continue!']"
+          required>
+        ></v-checkbox>
+        <v-checkbox
+          v-model="form__A2"
+          name="entry.994087084"
+          value="その他:"
+          label="その他:"
+          type="checkbox"
+          :rules="[v => !!v || 'You must agree to continue!']"
+          required>
+        ></v-checkbox>
+        <v-text-field
+          label="その他の場合は入力してください"
+          name="entry.994087084.other_option_response"
+          required
+        ></v-text-field>
+      </v-radio-group>
+      <v-alert type="error" v-show="errors.length" class="error_message">
+        {{ errors[0] }}
+      </v-alert>
+      </validation-provider>
+  {{form__A2}}
+
+      <validation-provider
+        v-slot="{ errors }"
+        rules="required"
+        name="「A-3」の項目"
+      >
+      <!-- production entry.967671219-->
+      <h3>《A-3ご回答者様の役職を記載してください》</h3>
+
+      <v-select
+            v-model="form__A3"
+            name="entry.265022917"
+            :items="items"
+            label="選択"
+            data-vv-name="選択"
+            :rules="[v => !!v || 'Item is required']"
             required
-          ></v-text-field>
+      ></v-select>
+      <v-alert type="error" v-show="errors.length" class="error_message">
+        {{ errors[0] }}
+      </v-alert>
+      </validation-provider>
 
-
-          <!-- production entry.405864373-->
-          <validation-provider
-            v-slot="{ errors }"
-            rules="required"
-            name="メールアドレス"
-          >
-          <v-text-field
-            v-model="email"
-            name="entry.2115424323"
-            label="メールアドレス"
-            required
-          ></v-text-field>
-          <v-alert type="error" v-show="errors.length" class="error_message">
-            {{ errors[0] }}
-          </v-alert>
-          </validation-provider>
-
-            <!-- production entry.1989060872-->
-            <validation-provider
-              v-slot="{ errors }"
-              rules="required"
-              name="「A-1-a」の項目"
-            >
-            <h3>【A-1-a】ご回答者様の所属されている組織が主に取り扱う業務は以下のいずれに該当するかお答えください</h3>
-            <v-radio-group row v-model="form__A1a" name="entry.1039878880" color="info">
-              <v-radio
-                label="J-REITの運用"
-                value="J-REITの運用"
-              ></v-radio>
-              <v-radio
-                label="私募REITの運用"
-                value="私募REITの運用"
-              ></v-radio>
-              <v-radio
-                label="その他"
-                value="その他"
-              ></v-radio>
-            </v-radio-group>
-            <v-alert type="error" v-show="errors.length" class="error_message">
-              {{ errors[0] }}
-            </v-alert>
-            </validation-provider>
-
-            <!-- production entry.1878965843-->
-            <validation-provider
-              v-slot="{ errors }"
-              rules="required"
-              name="「A-1-b」の項目"
-            >
-            <h3>【A-1-b】ご回答者様の現在の主な担当分野をお答えください</h3>
-            <v-radio-group row color="info" v-model="form__A1b" name="1601078361">
-              <v-radio
-                label="アクイジション"
-                value="アクイジション"
-              ></v-radio>
-              <v-radio
-                label="期中運用"
-                value="期中運用"
-              ></v-radio>
-              <v-radio
-                @change="radioChange"
-                label="その他:"
-                value="その他:"
-              ></v-radio>
-            </v-radio-group>
-            <v-alert type="error" v-show="errors.length" class="error_message">
-            {{ errors[0] }}
-          </v-alert>
-            </validation-provider>
-            {{form__A1b}}
-
-            <validation-provider
-              v-slot="{ errors }"
-              rules="required"
-              name="「A-1-c」の項目"
-            >
-            <!-- production entry.334413620-->
-            <h3>【A-1-c】ご回答者様が過去にご担当された経験のある分野をすべてお答えください（複数回答）</h3>
-            <v-radio-group row>
-              <v-checkbox
-                v-model="form__A1c"
-                name="entry.1079840559"
-                value="アクイジション"
-                label="アクイジション"
-                type="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                required>
-              ></v-checkbox>
-              <v-checkbox
-                v-model="form__A1c"
-                name="entry.1079840559"
-                value="期中運用"
-                label="期中運用"
-                type="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                required>
-              ></v-checkbox>
-              <v-checkbox
-                v-model="form__A1c"
-                name="entry.1079840559"
-                value="その他:"
-                label="その他:"
-                type="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                required>
-              ></v-checkbox>
-              <v-text-field
-                label="その他の場合は入力してください"
-                name="entry.1079840559.other_option_response"
-                required
-              ></v-text-field>
-            </v-radio-group>
-            <v-alert type="error" v-show="errors.length" class="error_message">
-              {{ errors[0] }}
-            </v-alert>
-            </validation-provider>
-      {{form__A1c}}
-
-            <validation-provider
-              v-slot="{ errors }"
-              rules="required"
-              name="「A-2」の項目"
-            >
-            <!-- production entry.1714591256-->
-            <h3>《A-2ご回答者様がお持ちの資格をすべてお答えください（複数回答）》</h3>
-            <v-radio-group row>
-              <v-checkbox
-                v-model="form__A2"
-                name="entry.994087084"
-                value="宅地建物取引士"
-                label="宅地建物取引士"
-                type="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                required>
-              ></v-checkbox>
-              <v-checkbox
-                v-model="form__A2"
-                name="entry.994087084"
-                value="不動産証券化マスター"
-                label="不動産証券化マスター"
-                type="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                required>
-              ></v-checkbox>
-              <v-checkbox
-                v-model="form__A2"
-                name="entry.994087084"
-                value="不動産鑑定士"
-                label="不動産鑑定士"
-                type="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                required>
-              ></v-checkbox>
-              <v-checkbox
-                v-model="form__A2"
-                name="entry.994087084"
-                value="その他:"
-                label="その他:"
-                type="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                required>
-              ></v-checkbox>
-              <v-text-field
-                label="その他の場合は入力してください"
-                name="entry.994087084.other_option_response"
-                required
-              ></v-text-field>
-            </v-radio-group>
-            <v-alert type="error" v-show="errors.length" class="error_message">
-              {{ errors[0] }}
-            </v-alert>
-            </validation-provider>
-      {{form__A2}}
-
-            <validation-provider
-              v-slot="{ errors }"
-              rules="required"
-              name="「A-3」の項目"
-            >
-            <!-- production entry.967671219-->
-            <v-card-text>
-              《A-3ご回答者様の役職を記載してください》
-            </v-card-text>
-            <v-select
-                  v-model="form__A3"
-                  name="entry.265022917"
-                  :items="items"
-                  label="選択"
-                  data-vv-name="選択"
-                  :rules="[v => !!v || 'Item is required']"
-                  required
-            ></v-select>
-            <v-alert type="error" v-show="errors.length" class="error_message">
-              {{ errors[0] }}
-            </v-alert>
-            </validation-provider>
-
-            <validation-provider
-              v-slot="{ errors }"
-              rules="required"
-              name="「A-4」の項目"
-            >
-            <!-- production entry.504873069-->
-            <h3>《A-4現在までに不動産投資関連の業務に従事された経験年数を記入してください》</h3>
-            <v-radio-group row v-model="form__A4" name="entry.802469403" color="info">
-              <v-radio
-                label="5年未満"
-                value="5年未満"
-                :rules="[v => !!v || 'You must agree to continue!']"
-              ></v-radio>
-              <v-radio
-                label="5年〜10年"
-                value="5年〜10年"
-                :rules="[v => !!v || 'You must agree to continue!']"
-              ></v-radio>
-              <v-radio
-                label="10年から15年"
-                value="10年から15年"
-                :rules="[v => !!v || 'You must agree to continue!']"
-              ></v-radio>
-              <v-radio
-                label="15年から20年"
-                value="15年から20年"
-                :rules="[v => !!v || 'You must agree to continue!']"
-              ></v-radio>
-              <v-radio
-                label="20年から30年"
-                value="20年から30年"
-                :rules="[v => !!v || 'You must agree to continue!']"
-              ></v-radio>
-              <v-radio
-                label="30年以上"
-                value="30年以上"
-                :rules="[v => !!v || 'You must agree to continue!']"
-              ></v-radio>
-            </v-radio-group>
-            <v-alert type="error" v-show="errors.length" class="error_message">
-              {{ errors[0] }}
-            </v-alert>
-            </validation-provider>
-        </v-container>
-      </v-card-text>
+      <validation-provider
+        v-slot="{ errors }"
+        rules="required"
+        name="「A-4」の項目"
+      >
+      <!-- production entry.504873069-->
+      <h3>《A-4現在までに不動産投資関連の業務に従事された経験年数を記入してください》</h3>
+      <v-radio-group row v-model="form__A4" name="entry.802469403" color="info">
+        <v-radio
+          label="5年未満"
+          value="5年未満"
+          :rules="[v => !!v || 'You must agree to continue!']"
+        ></v-radio>
+        <v-radio
+          label="5年〜10年"
+          value="5年〜10年"
+          :rules="[v => !!v || 'You must agree to continue!']"
+        ></v-radio>
+        <v-radio
+          label="10年から15年"
+          value="10年から15年"
+          :rules="[v => !!v || 'You must agree to continue!']"
+        ></v-radio>
+        <v-radio
+          label="15年から20年"
+          value="15年から20年"
+          :rules="[v => !!v || 'You must agree to continue!']"
+        ></v-radio>
+        <v-radio
+          label="20年から30年"
+          value="20年から30年"
+          :rules="[v => !!v || 'You must agree to continue!']"
+        ></v-radio>
+        <v-radio
+          label="30年以上"
+          value="30年以上"
+          :rules="[v => !!v || 'You must agree to continue!']"
+        ></v-radio>
+      </v-radio-group>
+      <v-alert type="error" v-show="errors.length" class="error_message">
+        {{ errors[0] }}
+      </v-alert>
+    </validation-provider>
   </div>
 </template>
 
@@ -270,6 +267,7 @@ export default {
     return {
       isDisabled: true,
       show: false,
+      enabled: false,
       items: [
         '経営層・役員クラス',
         '部長クラス',
@@ -399,5 +397,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.v-label {
+    font-size: 100px
 }
 </style>
