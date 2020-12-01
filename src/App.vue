@@ -71,8 +71,17 @@ export default {
         formData.append("entry.405864373", this.$store.state.email)
         formData.append("entry.1989060872", this.$store.state.form__A1a)
         formData.append("entry.1878965843", this.$store.state.form__A1b)
-        formData.append("entry.334413620", this.$store.state.form__A1c)
-        formData.append("entry.1714591256", this.$store.state.form__A2)
+        formData.append("entry.97078861", this.$store.state.form__A1bOther)
+
+        formData.append("entry.334413620", this.$store.state.form__A1c[0])
+        formData.append("entry.334413620", this.$store.state.form__A1c[1])
+        formData.append("entry.1293639316", this.$store.state.form__A1cOther)
+
+        formData.append("entry.1714591256", this.$store.state.form__A2[0])
+        formData.append("entry.1714591256", this.$store.state.form__A2[1])
+        formData.append("entry.1714591256", this.$store.state.form__A2[2])
+        formData.append("entry.1171708243", this.$store.state.form__A2Other)
+
         formData.append("entry.967671219", this.$store.state.form__A3)
         formData.append("entry.504873069", this.$store.state.form__A4)
         formData.append("entry.1387847984", this.startTime)

@@ -9,14 +9,17 @@ export default new Vuex.Store({
     startTime: '',
     endTime: '',
     ipAddress: '',
-    email: '',//entry.405864373 FirstStep.vue
-    form__A1a: '',//entry.1989060872 FirstStep.vue
-    form__A1b: '',//entry.1878965843 FirstStep.vue
-    form__A1c: [],//entry.334413620 FirstStep.vue
-    form__A2: [],//entry.1714591256 FirstStep.vue
-    form__A3: '',//entry.967671219 FirstStep.vue
-    form__A4: '',//entry.504873069  FirstStep.vue
-    form__B6: [],//entry.1247262667 SeventhStep.vue
+    email: '',
+    form__A1a: '',
+    form__A1b: '',
+    form__A1bOther: '',
+    form__A1c: [],
+    form__A1cOther: '',
+    form__A2: [],
+    form__A2Other: '',
+    form__A3: '',
+    form__A4: '',
+    form__B6: [],
     SecondStepValues: [
       {
         heading: '【B-1-a】エリア　オフィスビルの立地するエリア（サブマーケット）の品質に関して、以下の各要素がどの程度重要であるかをお答えください。',
@@ -374,11 +377,20 @@ export default new Vuex.Store({
     setFormA1b(state, payload) {
       state.form__A1b = payload.form__A1b;
     },
+    setFormA1bOther(state, payload) {
+      state.form__A1bOther = payload.form__A1bOther;
+    },
     setFormA1c(state, payload) {
       state.form__A1c = payload.form__A1c;
     },
+    setFormA1cOther(state, payload) {
+      state.form__A1cOther = payload.form__A1cOther;
+    },
     setFormA2(state, payload) {
       state.form__A2 = payload.form__A2;
+    },
+    setFormA2Other(state, payload) {
+      state.form__A2Other = payload.form__A2Other;
     },
     setFormA3(state, payload) {
       state.form__A3 = payload.form__A3;
