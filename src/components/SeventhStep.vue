@@ -1,54 +1,51 @@
 <template>
-  <div id="sixth-step">
-      <v-card-text>
-        <v-container>
-          <h1>D．総合的な財務的・非財務的要素の重要度</h1>
-          <p>オフィスビルに対する投資について、将来のキャッシュフローの安定性に関する考え方をお伺いいたします。</p>
+  <div id="seventh-step">
 
-          <v-row justify="center" align-content="center" v-for="SeventhStepValue in SeventhStepValues" v-bind:key="SeventhStepValue.title">
-            <h3>{{SeventhStepValue.heading}}</h3>
-            <v-col cols="4">
-              <h4>{{SeventhStepValue.title}}</h4>
-            </v-col>
-            <v-col cols="8">
-              <validation-provider
-                v-slot="{ errors }"
-                rules="required"
-              >
-              <v-radio-group row :name="SeventhStepValue.name" v-model="SeventhStepValue.saveValue" color="info">
-                <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
-                :label="radioItem.label"
-                :value="radioItem.val"
-                >
-                </v-radio>
-              </v-radio-group>
-              <v-alert type="error" v-show="errors.length" class="error_message">
-                {{ errors[0] }}
-              </v-alert>
-              </validation-provider>
-            </v-col>
-          </v-row>
+    <h4 class="text-h4">D．総合的な財務的・非財務的要素の重要度</h4>
+    <p>オフィスビルに対する投資について、将来のキャッシュフローの安定性に関する考え方をお伺いいたします。</p>
 
-          <p>設問は以上です。アンケートにご回答いただきありがとうございました。</p>
-          <br>
-          <br>
-          <br>
-          <br>
+    <div class="py-3" justify="center" align-content="center" v-for="SeventhStepValue in SeventhStepValues" v-bind:key="SeventhStepValue.title">
+      <p class="text-subtitle-1">{{SeventhStepValue.heading}}</p>
 
-          <!-- production entry.1247262667-->
-          <div>
-            <p>本アンケート調査の結果の概要ご希望の場合はお送りいたしますので、以下欄にチェックを入れてください。</p>
-            <v-checkbox
-              v-model="form__B6"
-              name="entry.1247262667"
-              value="希望する"
-              label="希望する"
-              type="checkbox"
-              required>
-            ></v-checkbox>
-          </div>
-        </v-container>
-      </v-card-text>
+        <h4>{{SeventhStepValue.title}}</h4>
+
+        <validation-provider
+          v-slot="{ errors }"
+          rules="required"
+        >
+        <v-radio-group row :name="SeventhStepValue.name" v-model="SeventhStepValue.saveValue" color="info">
+          <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
+          :label="radioItem.label"
+          :value="radioItem.val"
+          >
+          </v-radio>
+        </v-radio-group>
+        <v-alert type="error" v-show="errors.length" class="error_message">
+          {{ errors[0] }}
+        </v-alert>
+        </validation-provider>
+
+    </div>
+
+    <p>設問は以上です。アンケートにご回答いただきありがとうございました。</p>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- production entry.1247262667-->
+    <div>
+      <p>本アンケート調査の結果の概要ご希望の場合はお送りいたしますので、以下欄にチェックを入れてください。</p>
+      <v-checkbox
+        v-model="form__B6"
+        name="entry.1247262667"
+        value="希望する"
+        label="希望する"
+        type="checkbox"
+        required>
+      ></v-checkbox>
+    </div>
+
   </div>
 
 </template>

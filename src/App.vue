@@ -1,42 +1,45 @@
 <template>
   <v-app>
-    <v-main>
-      <validation-observer v-slot="{ invalid }">
-        <v-form ref="form" lazy-validation>
-          <v-card>
-            <v-card-title>オフィスビル品質評価調査</v-card-title>
-          </v-card>
-          <router-view/>
-        </v-form>
-        <transition>
-          <v-alert
-            v-model="alert"
-            border="left"
-            close-text="Close Alert"
-            color="info"
-            dark
-            dismissible
-            v-if="alert"
-          >送信しました。
-        </v-alert>
-        </transition>
+    <v-container fluid fill-height>
+      <v-layout align-center justify-center>
+        <v-flex xs12 sm8 md8>
+          <validation-observer v-slot="{ invalid }">
 
-        <v-row justify="center">
-          <v-col cols=3>
-            <v-btn width="180" large @click="navigatePrevious" v-show="!isFirst()">
-              戻る
-            </v-btn>
-          </v-col>
+            <v-card class="elevation-12">
+              <v-toolbar dark color="primary">
+                <v-toolbar-title>オフィスビル品質評価調査</v-toolbar-title>
+              </v-toolbar>
 
-          <v-col cols=3>
-            <v-btn width="180" text-align="center" large id="submitButton" @click="navigateNext()" :disabled="invalid">
-              {{ nextButtonText() }}
-            </v-btn>
-          </v-col>
-        </v-row>
-      </validation-observer>
+              <v-card-text class="overflow-y-auto" style="max-height:1000px">
+                <v-form ref="form" lazy-validation>
 
-    </v-main>
+                  <router-view/>
+                  <v-card-actions>
+                    <v-btn large @click="navigatePrevious" v-show="!isFirst()">戻る</v-btn>
+                    <v-spacer></v-spacer>
+                    <v-btn text-align="center" large id="submitButton" @click="navigateNext()" :disabled="invalid">{{ nextButtonText() }}</v-btn>
+                  </v-card-actions>
+                </v-form>
+                    <transition>
+                      <v-alert
+                        v-model="alert"
+                        border="left"
+                        close-text="Close Alert"
+                        color="info"
+                        dark
+                        dismissible
+                        v-if="alert"
+                      >送信しました。
+                      </v-alert>
+                    </transition>
+                  </v-card-text>
+                </v-card>
+
+          </validation-observer>
+        </v-flex>
+      </v-layout>
+    </v-container>
+
   </v-app>
 </template>
 
