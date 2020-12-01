@@ -20,7 +20,6 @@
     >
     <v-text-field
       v-model="email"
-      name="entry.2115424323"
       label="メールアドレス"
       required
     ></v-text-field>
@@ -36,7 +35,7 @@
         name="「A-1-a」の項目"
       >
       <h3>【A-1-a】ご回答者様の所属されている組織が主に取り扱う業務は以下のいずれに該当するかお答えください</h3>
-      <v-radio-group row v-model="form__A1a" name="entry.1039878880" color="info">
+      <v-radio-group row v-model="form__A1a" color="info">
         <v-radio
           label="J-REITの運用"
           value="J-REITの運用"
@@ -62,7 +61,7 @@
         name="「A-1-b」の項目"
       >
       <h3>【A-1-b】ご回答者様の現在の主な担当分野をお答えください</h3>
-      <v-radio-group row color="info" v-model="form__A1b" name="1601078361">
+      <v-radio-group row v-model="form__A1b" color="info">
         <v-radio
           label="アクイジション"
           value="アクイジション"
@@ -72,10 +71,14 @@
           value="期中運用"
         ></v-radio>
         <v-radio
-          @change="radioChange"
           label="その他:"
           value="その他:"
         ></v-radio>
+        <v-text-field
+          v-model="form__A1bOther"
+          label="その他の場合は入力してください"
+          required
+        ></v-text-field>
       </v-radio-group>
       <v-alert type="error" v-show="errors.length" class="error_message">
       {{ errors[0] }}
@@ -93,44 +96,38 @@
       <v-radio-group row>
         <v-checkbox
           v-model="form__A1c"
-          name="entry.1079840559"
           value="アクイジション"
           label="アクイジション"
-          type="checkbox"
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
         <v-checkbox
           v-model="form__A1c"
-          name="entry.1079840559"
           value="期中運用"
           label="期中運用"
-          type="checkbox"
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
         <v-checkbox
-          v-model="form__A1c"
-          hide-details
-          name="entry.1079840559"
+          v-model="enabled"
           value="その他:"
           label="その他:"
-          type="checkbox"
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
         <v-text-field
           :disabled="!enabled"
+          v-model="form__A1cOther"
           label="その他の場合は入力してください"
-          name="entry.1079840559.other_option_response"
           required
         ></v-text-field>
+        {{form__A1cOther}}
       </v-radio-group>
       <v-alert type="error" v-show="errors.length" class="error_message">
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
-  {{form__A1c}}
+      {{form__A1c}}
 
       <validation-provider
         v-slot="{ errors }"
@@ -142,43 +139,36 @@
       <v-radio-group row>
         <v-checkbox
           v-model="form__A2"
-          name="entry.994087084"
           value="宅地建物取引士"
           label="宅地建物取引士"
-          type="checkbox"
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
         <v-checkbox
           v-model="form__A2"
-          name="entry.994087084"
           value="不動産証券化マスター"
           label="不動産証券化マスター"
-          type="checkbox"
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
         <v-checkbox
           v-model="form__A2"
-          name="entry.994087084"
           value="不動産鑑定士"
           label="不動産鑑定士"
-          type="checkbox"
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
         <v-checkbox
-          v-model="form__A2"
-          name="entry.994087084"
+          v-model="A2Enabled"
           value="その他:"
           label="その他:"
-          type="checkbox"
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
         <v-text-field
+          :disabled="!A2Enabled"
+          v-model="form__A2Other"
           label="その他の場合は入力してください"
-          name="entry.994087084.other_option_response"
           required
         ></v-text-field>
       </v-radio-group>
@@ -186,7 +176,6 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
-  {{form__A2}}
 
       <validation-provider
         v-slot="{ errors }"
@@ -197,13 +186,12 @@
       <h3>《A-3ご回答者様の役職を記載してください》</h3>
 
       <v-select
-            v-model="form__A3"
-            name="entry.265022917"
-            :items="items"
-            label="選択"
-            data-vv-name="選択"
-            :rules="[v => !!v || 'Item is required']"
-            required
+        v-model="form__A3"
+        :items="items"
+        label="選択"
+        data-vv-name="選択"
+        :rules="[v => !!v || 'Item is required']"
+        required
       ></v-select>
       <v-alert type="error" v-show="errors.length" class="error_message">
         {{ errors[0] }}
@@ -217,7 +205,7 @@
       >
       <!-- production entry.504873069-->
       <h3>《A-4現在までに不動産投資関連の業務に従事された経験年数を記入してください》</h3>
-      <v-radio-group row v-model="form__A4" name="entry.802469403" color="info">
+      <v-radio-group row v-model="form__A4" color="info">
         <v-radio
           label="5年未満"
           value="5年未満"
@@ -253,6 +241,7 @@
         {{ errors[0] }}
       </v-alert>
     </validation-provider>
+
   </div>
 </template>
 
@@ -268,6 +257,7 @@ export default {
       isDisabled: true,
       show: false,
       enabled: false,
+      A2Enabled: false,
       items: [
         '経営層・役員クラス',
         '部長クラス',
@@ -346,6 +336,14 @@ export default {
         this.$store.commit('setFormA1b', {form__A1b: value})
       }
     },
+    form__A1bOther: {
+      get () {
+        return this.$store.state.form__A1bOther
+      },
+      set(value) {
+        this.$store.commit('setFormA1bOther', {form__A1bOther: value})
+      }
+    },
     form__A1c: {
       get () {
         return this.$store.state.form__A1c
@@ -354,12 +352,28 @@ export default {
         this.$store.commit('setFormA1c', {form__A1c: value})
       }
     },
+    form__A1cOther: {
+      get () {
+        return this.$store.state.form__A1cOther
+      },
+      set(value) {
+        this.$store.commit('setFormA1cOther', {form__A1cOther: value})
+      }
+    },
     form__A2: {
       get () {
         return this.$store.state.form__A2
       },
       set(value) {
         this.$store.commit('setFormA2', {form__A2: value})
+      }
+    },
+    form__A2Other: {
+      get () {
+        return this.$store.state.form__A2Other
+      },
+      set(value) {
+        this.$store.commit('setFormA2Other', {form__A2Other: value})
       }
     },
     form__A3: {

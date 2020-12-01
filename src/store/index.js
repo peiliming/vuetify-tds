@@ -18,8 +18,11 @@ export default new Vuex.Store({
     email: '',
     form__A1a: '',
     form__A1b: '',
+    form__A1bOther: '',
     form__A1c: [],
+    form__A1cOther: '',
     form__A2: [],
+    form__A2Other: '',
     form__A3: '',
     form__A4: '',
     form__B6: [],
@@ -392,11 +395,20 @@ export default new Vuex.Store({
     setFormA1b(state, payload) {
       state.form__A1b = payload.form__A1b;
     },
+    setFormA1bOther(state, payload) {
+      state.form__A1bOther = payload.form__A1bOther;
+    },
     setFormA1c(state, payload) {
       state.form__A1c = payload.form__A1c;
     },
+    setFormA1cOther(state, payload) {
+      state.form__A1cOther = payload.form__A1cOther;
+    },
     setFormA2(state, payload) {
       state.form__A2 = payload.form__A2;
+    },
+    setFormA2Other(state, payload) {
+      state.form__A2Other = payload.form__A2Other;
     },
     setFormA3(state, payload) {
       state.form__A3 = payload.form__A3;

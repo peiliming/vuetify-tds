@@ -12,7 +12,7 @@
 
               <v-card-text class="overflow-y-auto" style="max-height:1000px">
                 <v-form ref="form" lazy-validation>
-                  
+
                   <router-view/>
 
                   <v-card-actions>
@@ -65,21 +65,26 @@ export default {
     submit: function () {
       if(this.submitProcessing) {
         this.submitProcessing = false  //送信ボタン一回だけ
-
-
       /* form本体actionを使う場合の処理
       var typeChange = document.getElementById("submitButton").setAttribute('type', 'submit')
       return typeChange
       */
-    //production https://docs.google.com/forms/u/0/d/e/1FAIpQLSdpO8F3_ZyVfYMme7FAANIr6ZeRXssloVediPxJBpmHwgfpgg/formResponse -->
-    //dev https://docs.google.com/forms/d/e/1FAIpQLSfCG2wwK__IZB5F8GkcTnu-k6nFSpZ6ABbPjvaG8bsLyctdjg/formResponse -->
         const formData = new FormData();
         // dev用
         formData.append("entry.2115424323", this.$store.state.email)
         formData.append("entry.1039878880", this.$store.state.form__A1a)
         formData.append("entry.1601078361", this.$store.state.form__A1b)
-        formData.append("entry.1079840559", this.$store.state.form__A1c)
-        formData.append("entry.994087084", this.$store.state.form__A2)
+        formData.append("entry.239857830", this.$store.state.form__A1bOther)
+
+        formData.append("entry.1079840559", this.$store.state.form__A1c[0])
+        formData.append("entry.1079840559", this.$store.state.form__A1c[1])
+        formData.append("entry.1334640711", this.$store.state.form__A1cOther)
+
+        formData.append("entry.994087084", this.$store.state.form__A2[0])
+        formData.append("entry.994087084", this.$store.state.form__A2[1])
+        formData.append("entry.994087084", this.$store.state.form__A2[2])
+        formData.append("entry.2063324862", this.$store.state.form__A2Other)
+
         formData.append("entry.265022917", this.$store.state.form__A3)
         formData.append("entry.802469403", this.$store.state.form__A4)
         formData.append("entry.892247121", this.startTime)
