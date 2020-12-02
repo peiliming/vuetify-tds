@@ -66,11 +66,14 @@
           value="期中運用"
         ></v-radio>
         <v-radio
+          id="radio-button"
+          @change="radioButton"
           label="その他:"
           value="その他:"
         ></v-radio>
         <v-text-field
           v-model="form__A1bOther"
+          :disabled= '!A1bEnabled'
           label="その他の場合は入力してください"
           required
         ></v-text-field>
@@ -81,7 +84,7 @@
       </validation-provider>
     </div>
 
-<div class="form-content">
+    <div class="form-content">
       <validation-provider
         v-slot="{ errors }"
         rules="required"
@@ -125,10 +128,9 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
-</div>
+    </div>
 
-<div class="form-content">
-
+    <div class="form-content">
       <validation-provider
         v-slot="{ errors }"
         rules="required"
@@ -180,7 +182,9 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
+    </div>
 
+    <div class="form-content">
       <validation-provider
         v-slot="{ errors }"
         rules="required"
@@ -206,7 +210,7 @@
       </validation-provider>
       </div>
 
-<div class="form-content">
+    <div class="form-content">
       <validation-provider
         v-slot="{ errors }"
         rules="required"
@@ -250,7 +254,7 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
-</div>
+    </div>
 
 
   </div>
@@ -267,6 +271,7 @@ export default {
     return {
       isDisabled: true,
       show: false,
+      A1bEnabled: false,
       enabled: false,
       A2Enabled: false,
       items: [
@@ -288,6 +293,16 @@ export default {
     }
   },
   methods: {
+    radioButton: function() {
+      var button = document.getElementById('radio-button')
+      if(button.checked) {
+        console.log(button)
+      } else {
+        this.A1bEnabled = false
+      }
+      this.A1bEnabled = true
+    }
+
   },
   mounted() {
     axios.get('https://bwbwepmxj5.execute-api.ap-northeast-1.amazonaws.com/production/sourceip/')

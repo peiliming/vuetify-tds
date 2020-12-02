@@ -36,7 +36,13 @@
 
     .form-content-detail {
         margin-left: 3.2rem;
+
+        @media (max-width: 768px) {
+            margin-left: .6rem;
+        }
     }
+
+    
     
     .form-content-input-detail {
         margin-left: 3.2rem;
@@ -45,6 +51,19 @@
 
     .form-content-radio {
         margin-left: 1rem;
+    }
+
+    .v-label {
+        font-size: 14px;
+    }
+
+    .v-btn {
+        width: 240px;
+        height: 80px;
+
+        @media (max-width: 768px) {
+            width: 70px;
+        }
     }
 
 }

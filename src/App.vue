@@ -15,26 +15,29 @@
 
                   <router-view/>
                   <v-divider class="my-8"></v-divider>
-                  <v-card-actions>
-                    <v-btn large @click="navigatePrevious" v-show="!isFirst()">戻る</v-btn>
+                  <v-card-actions justify="space-between">
+                    <v-btn text-align="center" large @click="navigatePrevious" v-show="!isFirst()">戻る</v-btn>
                     <v-spacer></v-spacer>
                     <v-btn text-align="center" large id="submitButton" @click="navigateNext()" :disabled="invalid">{{ nextButtonText() }}</v-btn>
                   </v-card-actions>
                 </v-form>
-                    <transition>
-                      <v-alert
-                        v-model="alert"
-                        border="left"
-                        close-text="Close Alert"
-                        color="info"
-                        dark
-                        dismissible
-                        v-if="alert"
-                      >送信しました。
-                      </v-alert>
-                    </transition>
-                  </v-card-text>
-                </v-card>
+                <transition>
+                  <v-alert
+                    v-model="alert"
+                    border="left"
+                    close-text="Close Alert"
+                    color="info"
+                    dark
+                    dismissible
+                    v-if="alert"
+                  >送信しました。
+                  </v-alert>
+                </transition>
+              </v-card-text>
+
+              <v-footer class="py-3 mt-8" dark color="primary" padless></v-footer>
+
+            </v-card>
 
           </validation-observer>
         </v-flex>
