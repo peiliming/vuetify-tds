@@ -28,8 +28,8 @@
     <br><small>{{Detail.notes}}</small></p>
     <validation-provider
       v-slot="{ errors }"
-      rules="required"
-      name="こちら"
+      rules="numeric"
+      name="入力内容"
     >
     <v-text-field
       v-model="Detail.saveValue"
@@ -42,6 +42,11 @@
     </v-alert>
     </validation-provider>
     </div>
+    <v-text-field
+    v-model="sumValueB4b"
+    v-show="show"
+    required
+    ></v-text-field>
 
 
     <div class="py-3" v-for="Detail in FifthStepValuesCalculationSec" v-bind:key="Detail.title">
@@ -49,8 +54,8 @@
       <br><small>{{Detail.notes}}</small></p>
       <validation-provider
         v-slot="{ errors }"
-        rules="required"
-        name="こちら"
+        rules="numeric"
+        name="入力内容"
       >
       <v-text-field
         v-model="Detail.saveValue"
@@ -63,6 +68,11 @@
       </v-alert>
       </validation-provider>
     </div>
+    <v-text-field
+    v-model="sumValueB4c"
+    v-show="show"
+    required
+    ></v-text-field>
 
   </div>
 
@@ -75,7 +85,7 @@ export default {
   },
   data() {
     return {
-
+      show: false
     }
   },
   computed: {
@@ -111,9 +121,28 @@ export default {
         this.$store.commit('setRadioItem', {radioItems: value})
       }
     },
+    sumValueB4b: function(){
+      let sum = 0
+      for(const Detail of this.FifthStepValuesCalculation) {
+        sum += +Detail.saveValue
+      }
+      if(sum > 100) {
+        alert('合計値が100%を超えないでください')
+      }
+      return sum
+    },
+    sumValueB4c: function(){
+      let sum = 0
+      for(const Detail of this.FifthStepValuesCalculationSec) {
+        sum += +Detail.saveValue
+      }
+      if(sum > 100) {
+        alert('合計値が100%を超えないでください')
+      }
+      return sum
+    }
   }
 }
-// entry.2115424323
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
