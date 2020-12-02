@@ -26,7 +26,7 @@
           {{ errors[0] }}
         </v-alert>
         </validation-provider>
-      
+
     </div>
   <!--  <div>
     <h3>《B-4 【B-4-b】オフィスビルの品質に関する総合的な重要度 上記の要素の重要度を合計100％となるよう配分してご回答ください。
@@ -89,21 +89,3 @@ export default {
 }
 // entry.2115424323
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

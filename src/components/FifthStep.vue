@@ -25,17 +25,15 @@
 
     </div>
 
-    <div v-for="Detail in FifthStepValuesCalculation" v-bind:key="Detail.title">
-    <h3>{{Detail.heading}}
-    <small>{{Detail.notes}}</small></h3>
+    <div class="py-3" justify="center" align-content="center" v-for="Detail in FifthStepValuesCalculation" v-bind:key="Detail.title">
+    <p class="text-subtitle-1">{{Detail.heading}}<br>
+    <small>{{Detail.notes}}</small></p>
     <validation-provider
       v-slot="{ errors }"
       rules="numeric"
-      name="こちら"
+      name="入力内容"
     >
     <v-text-field
-      class="test"
-      id="sss"
       v-model="Detail.saveValue"
       :name="Detail.name"
       :label="Detail.label"
@@ -47,19 +45,18 @@
     </validation-provider>
     </div>
     <v-text-field
-      label="合計"
-      id="zf"
-      v-model="sumValue"
+      v-model="sumValueB4b"
+      v-show="show"
       required
     ></v-text-field>
 
-    <div v-for="Detail in FifthStepValuesCalculationSec" v-bind:key="Detail.title">
-    <h3>{{Detail.heading}}
-    <small>{{Detail.notes}}</small></h3>
+    <div class="py-3" justify="center" align-content="center" v-for="Detail in FifthStepValuesCalculationSec" v-bind:key="Detail.title">
+    <p class="text-subtitle-1">{{Detail.heading}}<br>
+    <small>{{Detail.notes}}</small></p>
     <validation-provider
       v-slot="{ errors }"
       rules="numeric"
-      name="こちら"
+      name="入力内容"
     >
     <v-text-field
       v-model="Detail.saveValue"
@@ -72,6 +69,11 @@
     </v-alert>
     </validation-provider>
     </div>
+    <v-text-field
+      v-model="sumValueB4c"
+      v-show="show"
+      required
+    ></v-text-field>
 
   </div>
 
@@ -84,7 +86,7 @@ export default {
   },
   data() {
     return {
-
+      show: false
     }
   },
   computed: {
@@ -120,39 +122,27 @@ export default {
         this.$store.commit('setRadioItem', {radioItems: value})
       }
     },
-    sumValue: function(){
-        var valueArr = document.getElementById("sss")
-        console.log(valueArr)
-    //    var sumValue=0;
-  /*      for (var i=0;i<valueArr.length;i++ )
-        {
-          sumValue +=parseInt(valueArr[i].value);
-          console.log(valueArr[i])
-          console.log(valueArr.length+'111')
-        }
-      //  document.getElementById("zf").value=sumValue;
-      console.log(sumValue)
-      return sumValue  */
-      return valueArr
+    sumValueB4b: function(){
+      let sum = 0
+      for(const Detail of this.FifthStepValuesCalculation) {
+        sum += +Detail.saveValue
+      }
+      if(sum > 100) {
+        alert('合計値が100%を超えないでください')
+      }
+      return sum
+    },
+    sumValueB4c: function(){
+      let sum = 0
+      for(const Detail of this.FifthStepValuesCalculationSec) {
+        sum += +Detail.saveValue
+      }
+      if(sum > 100) {
+        alert('合計値が100%を超えないでください')
+      }
+      return sum
     }
   }
 }
-</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+</script>
