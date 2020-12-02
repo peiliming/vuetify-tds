@@ -260,7 +260,7 @@ export default new Vuex.Store({
     ],
     FifthStepValuesCalculation: [
       {
-        heading: '《B-4 【B-4-b】オフィスビルの品質に関する総合的な重要度 上記の要素の重要度を合計100％となるよう配分してご回答ください。',
+        heading: '【B-4-b】オフィスビルの品質に関する総合的な重要度 上記の要素の重要度を合計100％となるよう配分してご回答ください。',
         notes: '下記の3項目は合計100になるよう、数字を入力してください。',
         saveValue: '', label: '立地', name: 'entry.825663094'
       },
@@ -295,7 +295,7 @@ export default new Vuex.Store({
     ],
     SixthStepValues: [
       {
-        headingTop: '《C-1インカムの安定性》',
+        headingTop: '【C-1】インカムの安定性',
         heading: 'オフィスビルに対する投資について、インカムの安定性を評価する際に、以下の要素の相対的な重要度をお答えください',
         saveValue: '', title: '空室率の低さ・リースアップの容易さ', name: 'entry.1697768036'
       },
@@ -309,7 +309,7 @@ export default new Vuex.Store({
         saveValue: '', title: 'テナントがESGに適合した行動・事業を行っている', name: 'entry.855237002'
       },
       {
-        headingTop: '《C-2キャピタルロスのリスク》',
+        headingTop: '【C-2】キャピタルロスのリスク',
         heading: 'オフィスビルに対する投資について、キャピタルロスのリスクを評価する際に、以下の要素の相対的な重要度をお答えください',
         saveValue: '', title: '保守的な評価をすること', name: 'entry.1969322524'
       },

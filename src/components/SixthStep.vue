@@ -1,21 +1,21 @@
 <template>
-  <div id="sixth-step" class="">
+  <div id="sixth-step">
 
-    <h4 class="text-h4">C．将来のキャッシュフローの安定性の評価</h4>
-    <br>
-    <p>オフィスビルに対する投資について、将来のキャッシュフローの安定性に関する考え方をお伺いいたします。</p>
+    <div class="amber lighten-3 rounded-lg pa-4">
+      <h2>【C】将来のキャッシュフローの安定性の評価</h2>
+      <p>オフィスビルに対する投資について、将来のキャッシュフローの安定性に関する考え方をお伺いいたします。</p>
+    </div>
 
-    <div class="py-3" justify="center" align-content="center" v-for="SixthStepValue in SixthStepValues" v-bind:key="SixthStepValue.title">
-      <h5 class="text-h5">{{SixthStepValue.headingTop}}</h5>
-      <p class="text-subtitle-1">{{SixthStepValue.heading}}</p>
-
+    <div class="form-content" justify="center" align-content="center" v-for="SixthStepValue in SixthStepValues" v-bind:key="SixthStepValue.title">
+      <h3>{{SixthStepValue.headingTop}}</h3>
+      <p class="form-content-text-sixth">{{SixthStepValue.heading}}</p>
+      <div class="form-content-detail">
         <h4>{{SixthStepValue.title}}</h4>
-
         <validation-provider
           v-slot="{ errors }"
           rules="required"
         >
-        <v-radio-group row :name="SixthStepValue.name" v-model="SixthStepValue.saveValue" color="info">
+        <v-radio-group class="form-content-radio" :name="SixthStepValue.name" v-model="SixthStepValue.saveValue" color="info">
           <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
           :label="radioItem.label"
           :value="radioItem.val"
@@ -26,33 +26,9 @@
           {{ errors[0] }}
         </v-alert>
         </validation-provider>
+      </div>
 
     </div>
-  <!--  <div>
-    <h3>《B-4 【B-4-b】オフィスビルの品質に関する総合的な重要度 上記の要素の重要度を合計100％となるよう配分してご回答ください。
-    <br><small>下記の3項目は合計100になるよう、数字を入力してください。</small></h3>
-    <v-text-field
-      v-model="form__B4b1"
-      name="entry"
-      label="立地"
-      required
-    ></v-text-field>
-
-    <v-text-field
-      v-model="form__B4b2"
-      name="entry"
-      label="建物品質"
-      required
-    ></v-text-field>
-
-    <v-text-field
-      v-model="form__B4b3"
-      name="entry"
-      label="室内環境（ワークスペース・執務環境）の品質"
-      required
-    ></v-text-field>
-    </div>
-    -->
 
   </div>
 

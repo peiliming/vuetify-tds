@@ -1,0 +1,45 @@
+.form {
+    letter-spacing: -.06rem;
+    .amber {
+        h2 {
+            text-indent: -.8rem;
+            padding-bottom: .4rem;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .form-content {
+        h3 {
+            margin-top: 2rem;
+        }
+        .form-content-text-sixth {
+            text-indent: .4rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-content-text {
+            text-indent: -.4rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .form-content-detail {
+        margin-left: 3.2rem;
+    }
+    
+    .form-content-input-detail {
+        margin-left: 3.2rem;
+        margin-right: 3.2rem;
+    }
+
+    .form-content-radio {
+        margin-left: 1rem;
+    }
+
+}
+
+.form-content-top-text {
+    text-indent: -.4rem;
+    padding-bottom: 1.5rem;
+}

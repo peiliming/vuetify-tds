@@ -1,7 +1,6 @@
 <template>
   <div id="first-step">
     <h3>ご回答者様のご勤務先のメールアドレスを入力ください ※個人情報保護方針：<a href="https://proptech.plus/privacy/">https://proptech.plus/privacy/</a></h3>
-
     <!-- production entry.1317767142-->
     <v-text-field
       v-model="ipAddress"
@@ -35,7 +34,7 @@
         name="「A-1-a」の項目"
       >
       <h3>【A-1-a】ご回答者様の所属されている組織が主に取り扱う業務は以下のいずれに該当するかお答えください</h3>
-      <v-radio-group row v-model="form__A1a" color="info">
+      <v-radio-group class="form-content-radio" v-model="form__A1a" color="info">
         <v-radio
           label="J-REITの運用"
           value="J-REITの運用"
@@ -61,7 +60,7 @@
         name="「A-1-b」の項目"
       >
       <h3>【A-1-b】ご回答者様の現在の主な担当分野をお答えください</h3>
-      <v-radio-group row v-model="form__A1b" color="info">
+      <v-radio-group class="form-content-radio" v-model="form__A1b" color="info">
         <v-radio
           label="アクイジション"
           value="アクイジション"
@@ -93,7 +92,7 @@
       >
       <!-- production entry.334413620-->
       <h3>【A-1-c】ご回答者様が過去にご担当された経験のある分野をすべてお答えください（複数回答）</h3>
-      <v-radio-group row>
+      <v-radio-group class="form-content-radio">
         <v-checkbox
           v-model="form__A1c"
           value="アクイジション"
@@ -138,7 +137,7 @@
       >
       <!-- production entry.1714591256-->
       <h3>《A-2ご回答者様がお持ちの資格をすべてお答えください（複数回答）》</h3>
-      <v-radio-group row>
+      <v-radio-group class="form-content-radio">
         <v-checkbox
           v-model="form__A2"
           value="宅地建物取引士"
@@ -210,7 +209,7 @@
       >
       <!-- production entry.504873069-->
       <h3>《A-4現在までに不動産投資関連の業務に従事された経験年数を記入してください》</h3>
-      <v-radio-group row v-model="form__A4" color="info">
+      <v-radio-group class="form-content-radio" v-model="form__A4" color="info">
         <v-radio
           label="5年未満"
           value="5年未満"

@@ -2,7 +2,7 @@
   <v-app>
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md8>
+        <v-flex xs12 sm8 md10>
           <validation-observer v-slot="{ invalid }">
 
             <v-card class="elevation-12">
@@ -11,10 +11,10 @@
               </v-toolbar>
 
               <v-card-text>
-                <v-form ref="form" lazy-validation>
+                <v-form class="form" ref="form" lazy-validation>
 
                   <router-view/>
-
+                  <v-divider class="py-2"></v-divider>
                   <v-card-actions>
                     <v-btn large @click="navigatePrevious" v-show="!isFirst()">戻る</v-btn>
                     <v-spacer></v-spacer>
@@ -242,37 +242,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.v-enter {
-  opacity: 0;
-}
-.v-enter-active {
-  transition: opacity 1s
-}
-.v-enter-to {
-  opacity: 1;
-}
-.v-leave {
-  opacity: 1;
-}
-.v-leave-active {
-  transition: opacity 1s
-}
-.v-leave-to {
-  opacity: 0;
-}
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style lang="scss">
+  @import "./assets/style.scss";
 </style>
