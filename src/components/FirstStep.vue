@@ -99,6 +99,7 @@
           value="アクイジション"
           label="アクイジション"
           :rules="[v => !!v || 'You must agree to continue!']"
+          hide-details
           required>
         ></v-checkbox>
         <v-checkbox
@@ -106,13 +107,14 @@
           value="期中運用"
           label="期中運用"
           :rules="[v => !!v || 'You must agree to continue!']"
+          hide-details
           required>
         ></v-checkbox>
         <v-checkbox
           v-model="enabled"
           value="その他:"
           label="その他:"
-          :rules="[v => !!v || 'You must agree to continue!']"
+          hide-details
           required>
         ></v-checkbox>
         <v-text-field
@@ -141,6 +143,7 @@
           v-model="form__A2"
           value="宅地建物取引士"
           label="宅地建物取引士"
+          hide-details
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
@@ -148,6 +151,7 @@
           v-model="form__A2"
           value="不動産証券化マスター"
           label="不動産証券化マスター"
+          hide-details
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
@@ -155,6 +159,7 @@
           v-model="form__A2"
           value="不動産鑑定士"
           label="不動産鑑定士"
+          hide-details
           :rules="[v => !!v || 'You must agree to continue!']"
           required>
         ></v-checkbox>
@@ -162,7 +167,7 @@
           v-model="A2Enabled"
           value="その他:"
           label="その他:"
-          :rules="[v => !!v || 'You must agree to continue!']"
+          hide-details
           required>
         ></v-checkbox>
         <v-text-field
