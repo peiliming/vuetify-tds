@@ -1,19 +1,21 @@
 <template>
   <div id="seventh-step">
 
-    <h4 class="text-h4">D．総合的な財務的・非財務的要素の重要度</h4>
-    <p>オフィスビルに対する投資について、将来のキャッシュフローの安定性に関する考え方をお伺いいたします。</p>
+    <div class="amber lighten-3 rounded-lg pa-4 mb-6">
+      <h2>【D】総合的な財務的・非財務的要素の重要度</h2>
+      <p>オフィスビルに対する投資について、将来のキャッシュフローの安定性に関する考え方をお伺いいたします。</p>
+    </div>
 
-    <div class="py-3" justify="center" align-content="center" v-for="SeventhStepValue in SeventhStepValues" v-bind:key="SeventhStepValue.title">
-      <p class="text-subtitle-1">{{SeventhStepValue.heading}}</p>
-
+    <div class="form-content" justify="center" align-content="center" v-for="SeventhStepValue in SeventhStepValues" v-bind:key="SeventhStepValue.title">
+      <p class="form-content-text">{{SeventhStepValue.heading}}</p>
+      <div class="form-content-detail">
         <h4>{{SeventhStepValue.title}}</h4>
 
         <validation-provider
           v-slot="{ errors }"
           rules="required"
         >
-        <v-radio-group row :name="SeventhStepValue.name" v-model="SeventhStepValue.saveValue" color="info">
+        <v-radio-group class="form-content-radio" :name="SeventhStepValue.name" v-model="SeventhStepValue.saveValue" color="info">
           <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
           :label="radioItem.label"
           :value="radioItem.val"
@@ -24,15 +26,13 @@
           {{ errors[0] }}
         </v-alert>
         </validation-provider>
+      </div>
 
     </div>
 
     <p>設問は以上です。アンケートにご回答いただきありがとうございました。</p>
     <br>
     <br>
-    <br>
-    <br>
-
     <!-- production entry.1247262667-->
     <div>
       <p>本アンケート調査の結果の概要ご希望の場合はお送りいたしますので、以下欄にチェックを入れてください。</p>

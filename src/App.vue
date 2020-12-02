@@ -2,7 +2,7 @@
   <v-app>
     <v-container fluid fill-height>
       <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md8>
+        <v-flex xs12 sm8 md10>
           <validation-observer v-slot="{ invalid }">
 
             <v-card class="elevation-12">
@@ -11,9 +11,10 @@
               </v-toolbar>
 
               <v-card-text>
-                <v-form ref="form" lazy-validation>
+                <v-form class="form" ref="form" lazy-validation>
 
                   <router-view/>
+                  <v-divider class="py-2"></v-divider>
                   <v-card-actions>
                     <v-btn large @click="navigatePrevious" v-show="!isFirst()">戻る</v-btn>
                     <v-spacer></v-spacer>
@@ -231,3 +232,7 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+  @import "./assets/style.scss";
+</style>

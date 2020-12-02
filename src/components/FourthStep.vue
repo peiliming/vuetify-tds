@@ -2,26 +2,28 @@
   <div id="fourth-step">
 
     <p>オフィスビルの室内環境（ワークスペース／執務環境）に関して、以下の４つの項目（柔軟性、快適性、通信環境、共用スペース）について、設問にある要素の相対的な重要度をご回答ください。最後に各項目の総合的な重要度についてお伺いします。</p>
-    <div class="py-3" align-content="center" v-for="FourthStepValue in FourthStepValues" v-bind:key="FourthStepValue.title">
-      <p class="text-subtitle-1">{{FourthStepValue.heading}}</p>
+    <div class="form-content" align-content="center" v-for="FourthStepValue in FourthStepValues" v-bind:key="FourthStepValue.title">
+      <p class="form-content-text">{{FourthStepValue.heading}}</p>
 
-      <h4>{{FourthStepValue.title}}</h4>
+      <div class="form-content-detail">
+        <h4>{{FourthStepValue.title}}</h4>
 
-      <validation-provider
-        v-slot="{ errors }"
-        rules="required"
-      >
-      <v-radio-group row :name="FourthStepValue.name" v-model="FourthStepValue.saveValue" color="info">
-        <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
-        :label="radioItem.label"
-        :value="radioItem.val"
+        <validation-provider
+          v-slot="{ errors }"
+          rules="required"
         >
-        </v-radio>
-      </v-radio-group>
-      <v-alert type="error" v-show="errors.length" class="error_message">
-        {{ errors[0] }}
-      </v-alert>
-      </validation-provider>
+        <v-radio-group class="form-content-radio" :name="FourthStepValue.name" v-model="FourthStepValue.saveValue" color="info">
+          <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
+          :label="radioItem.label"
+          :value="radioItem.val"
+          >
+          </v-radio>
+        </v-radio-group>
+        <v-alert type="error" v-show="errors.length" class="error_message">
+          {{ errors[0] }}
+        </v-alert>
+        </validation-provider>
+      </div>
 
     </div>
 

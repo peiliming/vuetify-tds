@@ -249,7 +249,7 @@ export default new Vuex.Store({
     ],
     FifthStepValuesCalculation: [
       {
-        heading: '《B-4 【B-4-b】オフィスビルの品質に関する総合的な重要度 上記の要素の重要度を合計100％となるよう配分してご回答ください。',
+        heading: '【B-4-b】オフィスビルの品質に関する総合的な重要度 上記の要素の重要度を合計100％となるよう配分してご回答ください。',
         notes: '下記の3項目は合計100になるよう、数字を入力してください。',
         saveValue: '', label: '立地', name: 'entry.526171916'
       },
@@ -284,7 +284,7 @@ export default new Vuex.Store({
     ],
     SixthStepValues: [
       {
-        headingTop: '《C-1インカムの安定性》',
+        headingTop: '【C-1】インカムの安定性',
         heading: 'オフィスビルに対する投資について、インカムの安定性を評価する際に、以下の要素の相対的な重要度をお答えください',
         saveValue: '', title: '空室率の低さ・リースアップの容易さ', name: 'entry.1713259411'
       },
@@ -298,7 +298,7 @@ export default new Vuex.Store({
         saveValue: '', title: 'テナントがESGに適合した行動・事業を行っている', name: 'entry.455558541'
       },
       {
-        headingTop: '《C-2キャピタルロスのリスク》',
+        headingTop: '【C-2】キャピタルロスのリスク',
         heading: 'オフィスビルに対する投資について、キャピタルロスのリスクを評価する際に、以下の要素の相対的な重要度をお答えください',
         saveValue: '', title: '保守的な評価をすること', name: 'entry.1691847972'
       },
@@ -309,7 +309,7 @@ export default new Vuex.Store({
         saveValue: '', title: '高い流動性（安全で短期での迅速な取引が可能なこと）', name: 'entry.1214389339'
       },
       {
-        headingTop: '《C-3上記の総合的な重要度》',
+        headingTop: '【C-3】上記の総合的な重要度',
         heading: '上記2問でお伺いした要素を総合して、オフィスビルの投資について考える際に、以下の要素の相対的な重要度をお答えください',
         saveValue: '', title: 'インカムの安定性が高い', name: 'entry.1455357995'
       },
@@ -319,7 +319,7 @@ export default new Vuex.Store({
     ],
     SeventhStepValues: [
       {
-        heading: '《D-1総合的な財務的・非財務的要素の重要度》オフィスビルに対する投資を決定する上で、B. およびC. でお伺いした財務的および非財務的要素の相対的な重要度をお答えください',
+        heading: '【D-1】総合的な財務的・非財務的要素の重要度》オフィスビルに対する投資を決定する上で、B. およびC. でお伺いした財務的および非財務的要素の相対的な重要度をお答えください',
         saveValue: '', title: '対象とするオフィスビルの全体的な品質（立地・建物・室内環境）', name: 'entry.1623023944'
       },
       {

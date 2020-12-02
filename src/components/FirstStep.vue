@@ -26,7 +26,7 @@
         name="「A-1-a」の項目"
       >
       <h3>【A-1-a】ご回答者様の所属されている組織が主に取り扱う業務は以下のいずれに該当するかお答えください</h3>
-      <v-radio-group row v-model="form__A1a" color="info">
+      <v-radio-group class="form-content-radio" v-model="form__A1a" color="info">
         <v-radio
           label="J-REITの運用"
           value="J-REITの運用"
@@ -52,7 +52,7 @@
       >
       <!-- production entry.1878965843-->
       <h3>【A-1-b】ご回答者様の現在の主な担当分野をお答えください</h3>
-      <v-radio-group row color="info" v-model="form__A1b">
+      <v-radio-group class="form-content-radio" color="info" v-model="form__A1b">
         <v-radio
           label="アクイジション"
           value="アクイジション"
@@ -83,7 +83,7 @@
       >
       <!-- production entry.334413620-->
       <h3>【A-1-c】ご回答者様が過去にご担当された経験のある分野をすべてお答えください（複数回答）</h3>
-      <v-radio-group row>
+      <v-radio-group class="form-content-radio">
         <v-checkbox
           v-model="form__A1c"
           value="アクイジション"
@@ -126,8 +126,8 @@
         name="「A-2」の項目"
       >
       <!-- production entry.1714591256-->
-      <h3>《A-2ご回答者様がお持ちの資格をすべてお答えください（複数回答）》</h3>
-      <v-radio-group row>
+      <h3>【A-2】ご回答者様がお持ちの資格をすべてお答えください（複数回答）</h3>
+      <v-radio-group class="form-content-radio">
         <v-checkbox
           v-model="form__A2"
           value="宅地建物取引士"
@@ -179,7 +179,7 @@
       >
       <!-- production entry.967671219-->
       <h3>
-        《A-3ご回答者様の役職を記載してください》
+        【A-3】ご回答者様の役職を記載してください
       </h3>
       <v-select
         v-model="form__A3"
@@ -201,8 +201,8 @@
         name="「A-4」の項目"
       >
       <!-- production entry.504873069-->
-      <h3>《A-4現在までに不動産投資関連の業務に従事された経験年数を記入してください》</h3>
-      <v-radio-group row v-model="form__A4" color="info">
+      <h3>【A-4】現在までに不動産投資関連の業務に従事された経験年数を記入してください</h3>
+      <v-radio-group class="form-content-radio" v-model="form__A4" color="info">
         <v-radio
           label="5年未満"
           value="5年未満"
@@ -381,21 +381,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

@@ -1,16 +1,16 @@
 <template>
   <div id="third-step">
 
-    <div class="py-3" justify="center" align-content="center" v-for="ThirdStepValue in ThirdStepValues" v-bind:key="ThirdStepValue.title">
-      <p class="text-subtitle-1">{{ThirdStepValue.heading}}</p>
-
+    <div class="form-content" justify="center" align-content="center" v-for="ThirdStepValue in ThirdStepValues" v-bind:key="ThirdStepValue.title">
+      <p class="form-content-text">{{ThirdStepValue.heading}}</p>
+      <div class="form-content-detail">
         <h4>{{ThirdStepValue.title}}</h4>
 
         <validation-provider
             v-slot="{ errors }"
             rules="required"
           >
-        <v-radio-group row :name="ThirdStepValue.name" v-model="ThirdStepValue.saveValue" color="info">
+        <v-radio-group class="form-content-radio" :name="ThirdStepValue.name" v-model="ThirdStepValue.saveValue" color="info">
           <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
           :label="radioItem.label"
           :value="radioItem.val"
@@ -21,6 +21,7 @@
           {{ errors[0] }}
         </v-alert>
         </validation-provider>
+      </div>
 
     </div>
 
@@ -29,7 +30,7 @@
 
 <script>
 export default {
-  name: 'secondStep',
+  name: 'thirdStep',
   components: {
   },
   data() {

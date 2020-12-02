@@ -1,34 +1,36 @@
 <template>
   <div id="sixth-step">
 
-    <h4 class="text-h4">C．将来のキャッシュフローの安定性の評価</h4>
-    <br>
-    <p>オフィスビルに対する投資について、将来のキャッシュフローの安定性に関する考え方をお伺いいたします。</p>
-
-    <div class="py-3" justify="center" align-content="center" v-for="SixthStepValue in SixthStepValues" v-bind:key="SixthStepValue.title">
-      <h5 class="text-h5">{{SixthStepValue.headingTop}}</h5>
-      <p class="text-subtitle-1">{{SixthStepValue.heading}}</p>
-
-      <h4>{{SixthStepValue.title}}</h4>
-
-      <validation-provider
-        v-slot="{ errors }"
-        rules="required"
-      >
-      <v-radio-group row :name="SixthStepValue.name" v-model="SixthStepValue.saveValue" color="info">
-        <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
-        :label="radioItem.label"
-        :value="radioItem.val"
-        >
-        </v-radio>
-      </v-radio-group>
-      <v-alert type="error" v-show="errors.length" class="error_message">
-        {{ errors[0] }}
-      </v-alert>
-      </validation-provider>
-
+    <div class="amber lighten-3 rounded-lg pa-4">
+      <h2>【C】将来のキャッシュフローの安定性の評価</h2>
+      <p>オフィスビルに対する投資について、将来のキャッシュフローの安定性に関する考え方をお伺いいたします。</p>
     </div>
- 
+
+    <div class="form-content" justify="center" align-content="center" v-for="SixthStepValue in SixthStepValues" v-bind:key="SixthStepValue.title">
+      <h3>{{SixthStepValue.headingTop}}</h3>
+      <p class="form-content-text-sixth">{{SixthStepValue.heading}}</p>
+      <div class="form-content-detail">
+
+        <h4>{{SixthStepValue.title}}</h4>
+
+        <validation-provider
+          v-slot="{ errors }"
+          rules="required"
+        >
+        <v-radio-group class="form-content-radio" :name="SixthStepValue.name" v-model="SixthStepValue.saveValue" color="info">
+          <v-radio v-for="radioItem in radioItems" v-bind:key="radioItem.label"
+          :label="radioItem.label"
+          :value="radioItem.val"
+          >
+          </v-radio>
+        </v-radio-group>
+        <v-alert type="error" v-show="errors.length" class="error_message">
+          {{ errors[0] }}
+        </v-alert>
+        </validation-provider>
+      </div>
+    </div>
+
   </div>
 
 </template>
