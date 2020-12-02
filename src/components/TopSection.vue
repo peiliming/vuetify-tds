@@ -11,6 +11,10 @@
   本アンケートについての詳細はこちら<br>
   <a href="https://reitdb.com/pdf/InSurveyTodai.pdf">https://reitdb.com/pdf/InSurveyTodai.pdf</a></p>
 
+  <p>東京大学空間情報科学研究センター不動産情報科学部門<br>
+  部門長・特任教授  清水千弘<br>
+  <a href="https://shmzlab.jp/main/aboutus/">https://shmzlab.jp/main/aboutus/</a></p>
+
   </div>
 </template>
 
