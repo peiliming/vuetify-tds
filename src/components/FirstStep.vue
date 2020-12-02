@@ -1,8 +1,8 @@
 <template>
   <div id="first-step">
 
+    <div class="form-content">
     <h3>ご回答者様のご勤務先のメールアドレスを入力ください ※個人情報保護方針：<a href="https://proptech.plus/privacy/">https://proptech.plus/privacy/</a></h3>
-
     <!-- production entry.405864373-->
     <validation-provider
       v-slot="{ errors }"
@@ -18,7 +18,9 @@
       {{ errors[0] }}
     </v-alert>
     </validation-provider>
+    </div>
 
+    <div class="form-content">
       <!-- production entry.1989060872-->
       <validation-provider
         v-slot="{ errors }"
@@ -44,7 +46,9 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
+    </div>
 
+    <div class="form-content">
       <validation-provider
         v-slot="{ errors }"
         rules="required"
@@ -75,7 +79,9 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
+    </div>
 
+<div class="form-content">
       <validation-provider
         v-slot="{ errors }"
         rules="required"
@@ -119,6 +125,9 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
+</div>
+
+<div class="form-content">
 
       <validation-provider
         v-slot="{ errors }"
@@ -182,6 +191,7 @@
         【A-3】ご回答者様の役職を記載してください
       </h3>
       <v-select
+        class="form-content-radio"
         v-model="form__A3"
         name="entry.967671219"
         :items="items"
@@ -194,7 +204,9 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
+      </div>
 
+<div class="form-content">
       <validation-provider
         v-slot="{ errors }"
         rules="required"
@@ -238,6 +250,8 @@
         {{ errors[0] }}
       </v-alert>
       </validation-provider>
+</div>
+
 
   </div>
 </template>

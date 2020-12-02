@@ -14,7 +14,7 @@
                 <v-form class="form" ref="form" lazy-validation>
 
                   <router-view/>
-                  <v-divider class="py-2"></v-divider>
+                  <v-divider class="my-8"></v-divider>
                   <v-card-actions>
                     <v-btn large @click="navigatePrevious" v-show="!isFirst()">戻る</v-btn>
                     <v-spacer></v-spacer>

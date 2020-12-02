@@ -11,6 +11,8 @@
         }
     }
     .form-content {
+        margin-bottom: -1.5rem;
+
         h3 {
             margin-top: 2rem;
         }
@@ -19,9 +21,17 @@
             margin-bottom: 1.5rem;
         }
         .form-content-text {
+            margin-top: 4rem;
             text-indent: -.4rem;
             margin-bottom: 1.5rem;
         }
+        &:first-child {        
+            .form-content-text {
+                margin-top: 1rem;
+            }
+        }
+        
+        
     }
 
     .form-content-detail {
