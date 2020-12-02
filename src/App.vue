@@ -10,7 +10,7 @@
                 <v-toolbar-title>オフィスビル品質評価調査</v-toolbar-title>
               </v-toolbar>
 
-              <v-card-text class="overflow-y-auto" style="max-height:1000px">
+              <v-card-text>
                 <v-form ref="form" lazy-validation>
 
                   <router-view/>
