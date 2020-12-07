@@ -1,9 +1,17 @@
 <template>
   <div id="fifth-step">
 
-    <p class="form-content-top-text">【B-4 全体評価】これまでお聞きしたオフィスビルの品質の3つの要素（立地、建物品質、室内環境）について、総合的な重要度をお聞きします。</p>
+    <div class="amber lighten-3 rounded-lg pa-4">
+      <h2>【B-4 全体評価】</h2>
+      <p>これまでお聞きしたオフィスビルの品質の3つの要素（立地、建物品質、室内環境）について、総合的な重要度をお聞きします。</p>
+    </div>
+    
     <div class="form-content" justify="center" align-content="center" v-for="FifthStepValue in FifthStepValues" v-bind:key="FifthStepValue.title">
-      <p class="form-content-text">{{FifthStepValue.heading}}</p>
+      
+      <div class="form-heading-top">
+        <h3>{{FifthStepValue.headingTop}}</h3>
+        <p>{{FifthStepValue.heading}}</p>
+      </div>
       <div class="form-content-detail">
         <h4>{{FifthStepValue.title}}</h4>
         <validation-provider
@@ -25,8 +33,12 @@
     </div>
 
       <div class="form-content" v-for="Detail in FifthStepValuesCalculation" v-bind:key="Detail.title">
-        <p class="form-content-text">{{Detail.heading}}
-        <br><small>{{Detail.notes}}</small></p>
+        <div class="form-heading-top">
+          <h3>{{Detail.headingTop}}</h3>
+          <p>{{Detail.heading}}</p>
+          <p class="annotation note">{{Detail.notes}}</p>
+        </div>
+        
         <div class="form-content-input-detail">
           <validation-provider
             v-slot="{ errors }"
@@ -53,8 +65,11 @@
 
 
       <div class="form-content" v-for="Detail in FifthStepValuesCalculationSec" v-bind:key="Detail.title">
-        <p class="form-content-text">{{Detail.heading}}
-        <br><small>{{Detail.notes}}</small></p>
+        <div class="form-heading-top">
+          <h3>{{Detail.headingTop}}</h3>
+          <p>{{Detail.heading}}</p>
+          <p class="annotation note">{{Detail.notes}}</p>
+        </div>
         <div class="form-content-input-detail">
           <validation-provider
             v-slot="{ errors }"

@@ -1,5 +1,35 @@
 .form {
     letter-spacing: -.06rem;
+
+    .annotation {
+        font-size: 12px;
+        font-weight: lighter;
+    }
+
+    .note {
+        color: #e65100;
+    }
+
+    a {
+        text-decoration: none;
+
+    }
+
+    .top-paragrap {
+        background-color: #eee;
+        border-radius: 6px;
+        padding-right: 50px;
+
+        p {
+            font-size: 16px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
     .amber {
         h2 {
             text-indent: -.8rem;
@@ -16,34 +46,36 @@
         h3 {
             margin-top: 2rem;
         }
-        .form-content-text-sixth {
-            text-indent: .4rem;
+        .form-heading-top {
             margin-bottom: 1.5rem;
+
+            p {
+                text-indent: .4rem;
+            }
         }
         .form-content-text {
             margin-top: 4rem;
             text-indent: -.4rem;
             margin-bottom: 1.5rem;
         }
-        &:first-child {        
+        &:first-child {
             .form-content-text {
                 margin-top: 1rem;
             }
         }
-        
-        
+
     }
 
     .form-content-detail {
         margin-left: 3.2rem;
+        margin-right: 3.2rem;
 
         @media (max-width: 768px) {
             margin-left: .6rem;
         }
     }
 
-    
-    
+
     .form-content-input-detail {
         margin-left: 3.2rem;
         margin-right: 3.2rem;
@@ -63,6 +95,17 @@
 
         @media (max-width: 768px) {
             width: 70px;
+        }
+    }
+
+    #seventh-step {
+        .top-paragrap {
+            .v-label {
+                font-size: 16px;
+            }
+            .v-input {
+                font-weight: bold;
+            }
         }
     }
 

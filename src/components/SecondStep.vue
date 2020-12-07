@@ -1,9 +1,22 @@
 <template>
 <div id="second-step">
 
-  <div class="form-content" justify="center" align-content="center" v-for="SecondStepValue in SecondStepValues" v-bind:key="SecondStepValue.title">
-    <p class="form-content-text">{{SecondStepValue.heading}}</p>
+  <div class="top-paragrap pl-4 pr-16 pa-4 mb-14">
+    <p>これ以降、物件の最有効活用（最も収益性が高く、最も合理的な使用法）の観点から、東京都心5区に立地するオフィスビルに対する投資を検討する業務を担当しているものと想像してください。設問に際しては、列挙されている要素間の相対的な関係で各要素の重要度を評価してください。</p>
+    <p>各要素は大まかにオフィスビルとしての①立地、②建物性能、③室内環境の3カテゴリに分けられます。</p>
+    <p>それぞれのカテゴリについて、いくつかの項目について重要度をお聞きし、その後に各項目の総合的な重要度についてお伺いします。</p>
+  </div>
 
+  <div class="amber lighten-3 rounded-lg pa-4">
+    <h2>【B-1】オフィスビルの立地について</h2>
+  </div>
+
+  <div class="form-content" justify="center" align-content="center" v-for="SecondStepValue in SecondStepValues" v-bind:key="SecondStepValue.title">
+    <div class="form-heading-top">
+      <h3>{{SecondStepValue.headingTop}}</h3>
+      <p>{{SecondStepValue.heading}}</p>
+    </div>
+    
     <div class="form-content-detail">
       <h4>{{SecondStepValue.title}}</h4>
 

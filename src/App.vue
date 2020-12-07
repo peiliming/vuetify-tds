@@ -1,16 +1,17 @@
 <template>
   <v-app>
-    <v-container fluid fill-height>
-      <v-layout align-center justify-center>
-        <v-flex xs12 sm8 md10>
+    <!--<v-container fluid fill-height>-->
+    <!--  <v-layout align-center justify-center>-->
+      <!--<v-layout justify-center>-->
+      <!--  <v-flex xs12 sm8 md10> -->
           <validation-observer v-slot="{ invalid }">
 
-            <v-card class="elevation-12">
+          <!--  <v-card class="elevation-12"> -->
               <v-toolbar dark color="primary">
-                <v-toolbar-title>オフィスビル品質評価調査</v-toolbar-title>
+                <v-toolbar-title class="font-weight-black">オフィスビル品質評価調査</v-toolbar-title>
               </v-toolbar>
 
-              <v-card-text>
+              <v-card-text class="px-16">
                 <v-form class="form" ref="form" lazy-validation>
 
                   <router-view/>
@@ -33,16 +34,17 @@
                   >送信しました。
                   </v-alert>
                 </transition>
+
               </v-card-text>
 
               <v-footer class="py-3 mt-8" dark color="primary" padless></v-footer>
 
-            </v-card>
+          <!--  </v-card>-->
 
           </validation-observer>
-        </v-flex>
-      </v-layout>
-    </v-container>
+    <!--    </v-flex>   -->
+    <!--  </v-layout> -->
+  <!--  </v-container> -->
 
   </v-app>
 </template>
@@ -187,10 +189,8 @@ export default {
     },
 
     navigateNext() {
-      if ( this.$route.name === 'firstStep' ){ this.$router.push('/second-section') }
-      else if ( this.$route.name === 'secondSection' ) { this.$router.push('/second-step') }
-      else if ( this.$route.name === 'secondStep' ) { this.$router.push('/third-section') }
-      else if ( this.$route.name === 'thirdSection' ) {this.$router.push('/third-step') }
+      if ( this.$route.name === 'firstStep' ){ this.$router.push('/second-step') }
+      else if ( this.$route.name === 'secondStep' ) { this.$router.push('/third-step') }
       else if ( this.$route.name === 'thirdStep' ) {this.$router.push('/fourth-step') }
       else if ( this.$route.name === 'fourthStep' ) {this.$router.push('/fifth-step') }
       else if ( this.$route.name === 'fifthStep' ) {this.$router.push('/sixth-step') }
@@ -204,17 +204,11 @@ export default {
       if (this.$route.name === 'firstStep'){
         this.$router.push('/')
       }
-      if (this.$route.name === 'secondSection'){
+      if (this.$route.name === 'secondStep'){
         this.$router.push('/first-step')
       }
-      if (this.$route.name === 'secondStep'){
-        this.$router.push('/second-section')
-      }
-      if (this.$route.name === 'thirdSection'){
-        this.$router.push('/second-step')
-      }
       if (this.$route.name === 'thirdStep'){
-        this.$router.push('/third-section')
+        this.$router.push('/second-step')
       }
       if (this.$route.name === 'fourthStep'){
         this.$router.push('/third-step')

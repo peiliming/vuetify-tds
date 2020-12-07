@@ -1,10 +1,17 @@
 <template>
   <div id="fourth-step">
 
-    <p>オフィスビルの室内環境（ワークスペース／執務環境）に関して、以下の４つの項目（柔軟性、快適性、通信環境、共用スペース）について、設問にある要素の相対的な重要度をご回答ください。最後に各項目の総合的な重要度についてお伺いします。</p>
-    <div class="form-content" align-content="center" v-for="FourthStepValue in FourthStepValues" v-bind:key="FourthStepValue.title">
-      <p class="form-content-text">{{FourthStepValue.heading}}</p>
+    <div class="amber lighten-3 rounded-lg pa-4">
+      <h2>【B-3】オフィスビルの室内環境（ワークスペース／執務環境）</h2>
+      <p>オフィスビルの室内環境（ワークスペース／執務環境）に関して、以下の４つの項目（柔軟性、快適性、通信環境、共用スペース）について、設問にある要素の相対的な重要度をご回答ください。最後に各項目の総合的な重要度についてお伺いします。</p>
+    </div>
 
+    <div class="form-content" align-content="center" v-for="FourthStepValue in FourthStepValues" v-bind:key="FourthStepValue.title">
+      <div class="form-heading-top">
+        <h3>{{FourthStepValue.headingTop}}</h3>
+        <p>{{FourthStepValue.heading}}</p>
+      </div>
+      
       <div class="form-content-detail">
         <h4>{{FourthStepValue.title}}</h4>
 

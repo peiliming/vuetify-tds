@@ -1,8 +1,17 @@
 <template>
   <div id="third-step">
 
+    <div class="amber lighten-3 rounded-lg pa-4">
+      <h2>【B-2】オフィスビルの建物の品質について</h2>
+      <p>オフィスビルの建物の品質に関して、以下の４つの項目（美観、経年による陳腐化への対応、環境性能、リスクマネジメント）について、設問にある要素の相対的な重要度をご回答ください。最後に各項目の総合的な重要度についてお伺いします。</p>
+    </div>
+
     <div class="form-content" justify="center" align-content="center" v-for="ThirdStepValue in ThirdStepValues" v-bind:key="ThirdStepValue.title">
-      <p class="form-content-text">{{ThirdStepValue.heading}}</p>
+      <div class="form-heading-top">
+        <h3>{{ThirdStepValue.headingTop}}</h3>
+        <p>{{ThirdStepValue.heading}}</p>
+      </div>
+      
       <div class="form-content-detail">
         <h4>{{ThirdStepValue.title}}</h4>
 

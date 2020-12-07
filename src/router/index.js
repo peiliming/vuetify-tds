@@ -4,9 +4,7 @@ import VueRouter from 'vue-router'
 
 import TopSection from "../components/TopSection.vue"
 import FirstStep from '../components/FirstStep.vue'
-import SecondSection from "../components/SecondSection.vue"
 import SecondStep from '../components/SecondStep.vue'
-import ThirdSection from "../components/ThirdSection.vue"
 import ThirdStep from '../components/ThirdStep.vue'
 import FourthStep from '../components/FourthStep.vue'
 import FifthStep from '../components/FifthStep.vue'
@@ -27,19 +25,9 @@ const routes = [
     component: FirstStep
   },
   {
-    path: "/second-section",
-    name: "secondSection",
-    component: SecondSection
-  },
-  {
     path: '/second-step',
     name: 'secondStep',
     component: SecondStep
-  },
-  {
-    path: '/third-section',
-    name: 'thirdSection',
-    component: ThirdSection
   },
   {
     path: '/third-step',

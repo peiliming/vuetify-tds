@@ -7,7 +7,11 @@
     </div>
 
     <div class="form-content" justify="center" align-content="center" v-for="SeventhStepValue in SeventhStepValues" v-bind:key="SeventhStepValue.title">
-      <p class="form-content-text">{{SeventhStepValue.heading}}</p>
+      <div class="form-heading-top">
+        <h3>{{SeventhStepValue.headingTop}}</h3>
+        <p>{{SeventhStepValue.heading}}</p>
+      </div>
+      
       <div class="form-content-detail">
         <h4>{{SeventhStepValue.title}}</h4>
 
@@ -30,11 +34,11 @@
 
     </div>
 
+
+<div class="top-paragrap pl-4 pr-16 pt-8 pa-4 mb-14 mt-14">
     <p>設問は以上です。アンケートにご回答いただきありがとうございました。</p>
     <br>
-    <br>
-    <!-- production entry.1247262667-->
-    <div>
+
       <p>本アンケート調査の結果の概要ご希望の場合はお送りいたしますので、以下欄にチェックを入れてください。</p>
       <v-checkbox
         v-model="form__B6"

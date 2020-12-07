@@ -7,8 +7,10 @@
     </div>
 
     <div class="form-content" justify="center" align-content="center" v-for="SixthStepValue in SixthStepValues" v-bind:key="SixthStepValue.title">
-      <h3>{{SixthStepValue.headingTop}}</h3>
-      <p class="form-content-text-sixth">{{SixthStepValue.heading}}</p>
+      <div class="form-heading-top">
+        <h3>{{SixthStepValue.headingTop}}</h3>
+        <p>{{SixthStepValue.heading}}</p>
+      </div>
       <div class="form-content-detail">
 
         <h4>{{SixthStepValue.title}}</h4>
