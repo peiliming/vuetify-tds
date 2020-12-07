@@ -35,7 +35,7 @@
     </div>
 
 
-<div class="top-paragrap pl-4 pr-16 pt-8 pa-4 mb-14 mt-14">
+<div class="top-paragrap pl-4 pr-16 pt-8 pa-4 mb-16 mt-14">
     <p>設問は以上です。アンケートにご回答いただきありがとうございました。</p>
     <br>
 

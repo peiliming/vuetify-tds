@@ -111,7 +111,38 @@
 
 }
 
+#seventh-step {
+    margin-bottom: 120px;
+}
+
 .form-content-top-text {
     text-indent: -.4rem;
     padding-bottom: 1.5rem;
+}
+
+.v-card__actions {
+    position: relative;
+}
+
+.submit-button {
+    position: absolute!important;
+    left: 50%!important;
+    height: 50px!important;
+    bottom: 100px!important;
+    display: block!important;
+    width: 500px!important;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.first-button {
+    position: absolute!important;
+    z-index: 99!important;
+    left: 50%!important;
+    height: 50px!important;
+    bottom: -130px!important;
+    display: block!important;
+    width: 500px!important;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
 }

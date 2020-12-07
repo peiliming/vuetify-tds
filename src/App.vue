@@ -15,11 +15,12 @@
                 <v-form class="form" ref="form" lazy-validation>
 
                   <router-view/>
+
                   <v-divider class="my-8"></v-divider>
                   <v-card-actions justify="space-between">
                     <v-btn text-align="center" large @click="navigatePrevious" v-show="!isFirst()">戻る</v-btn>
                     <v-spacer></v-spacer>
-                    <v-btn text-align="center" large id="submitButton" @click="navigateNext()" :disabled="invalid">{{ nextButtonText() }}</v-btn>
+                    <v-btn text-align="center" large id="submitButton" :class="{'amber lighten-3 submit-button': isActive}" @click="navigateNext()" :disabled="invalid" v-show="!isFirst()">{{ nextButtonText() }}</v-btn>
                   </v-card-actions>
                 </v-form>
                 <transition>
@@ -63,7 +64,8 @@ export default {
       startTimeGet: true,
       endTime: null,
       endTimeGet: true,
-      invalid: false
+      invalid: false,
+      isActive: false
     }
   },
   methods: {
@@ -179,7 +181,10 @@ export default {
       if ( this.$route.name === 'firstStep' ||  this.$route.name === 'secondSection' || this.$route.name === 'secondStep' || this.$route.name === 'thirdSection'
       || this.$route.name === 'thirdStep' || this.$route.name === 'fourthStep' || this.$route.name === 'fifthStep' || this.$route.name === 'sixthStep')
       { return '次へ'}
-      else if( this.$route.name === 'seventhStep' ){ return '送信'}
+      else if( this.$route.name === 'seventhStep' ){
+        this.isActive = true
+        return '回答を送信'
+      }
       else {return '次へ'}
 
     },
