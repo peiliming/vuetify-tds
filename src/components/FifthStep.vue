@@ -2,7 +2,7 @@
   <div id="fifth-step">
 
     <div class="amber lighten-3 rounded-lg pa-4">
-      <h2>【B-4 全体評価】</h2>
+      <h2>【B-4】全体評価</h2>
       <p>これまでお聞きしたオフィスビルの品質の3つの要素（立地、建物品質、室内環境）について、総合的な重要度をお聞きします。</p>
     </div>
     

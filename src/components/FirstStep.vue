@@ -63,7 +63,7 @@
           rules="required"
           name="「A-1-b」の項目"
         >
-        <h3>【A-1-b】ご回答者様の現在の主な担当分野をお答えください</h3>
+        <h4>【A-1-b】ご回答者様の現在の主な担当分野をお答えください</h4>
         <v-radio-group class="form-content-radio" color="info" v-model="form__A1b">
           <v-radio
             label="アクイジション"
@@ -142,7 +142,7 @@
           name="「A-2」の項目"
         >
 
-        <h4>【A-2】ご回答者様がお持ちの資格をすべてお答えください（複数回答）</h4>
+        <h3>【A-2】ご回答者様がお持ちの資格をすべてお答えください（複数回答）</h3>
         <v-radio-group class="form-content-radio">
           <v-checkbox
             v-model="form__A2"
@@ -195,7 +195,7 @@
           name="「A-3」の項目"
         >
 
-        <h4>【A-3】ご回答者様の役職を記載してください</h4>
+        <h3>【A-3】ご回答者様の役職を記載してください</h3>
         <v-select
           class="form-content-radio"
           v-model="form__A3"
@@ -218,7 +218,7 @@
           name="「A-4」の項目"
         >
 
-        <h4>【A-4】現在までに不動産投資関連の業務に従事された経験年数を記入してください</h4>
+        <h3>【A-4】現在までに不動産投資関連の業務に従事された経験年数を記入してください</h3>
         <v-radio-group class="form-content-radio" v-model="form__A4" color="info">
           <v-radio
             label="5年未満"
