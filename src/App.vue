@@ -193,7 +193,8 @@ export default {
 
       if ( this.$route.name === 'firstStep' ||  this.$route.name === 'secondSection' || this.$route.name === 'secondStep' || this.$route.name === 'thirdSection'
       || this.$route.name === 'thirdStep' || this.$route.name === 'fourthStep' || this.$route.name === 'fifthStep' || this.$route.name === 'sixthStep')
-      { return '次へ'}
+      { this.isActive = false
+      return '次へ'}
       else if( this.$route.name === 'seventhStep' ){
         this.isActive = true
         return '回答を送信'
