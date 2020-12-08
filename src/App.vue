@@ -69,7 +69,20 @@ export default {
     }
   },
   methods: {
+    moveToTop: function() {
+        const duration = 500;  // 移動速度（1秒で終了）
+        const interval = 25;    // 0.025秒ごとに移動
+        const step = -window.scrollY / Math.ceil(duration / interval); // 1回に移動する距離
+        const timer = setInterval(() => {
 
+            window.scrollBy(0, step);   // スクロール位置を移動
+
+            if(window.scrollY <= 0) {
+                clearInterval(timer);
+            }
+
+        }, interval);
+    },
     submit: function () {
       if(this.submitProcessing) {
         this.submitProcessing = false
@@ -194,6 +207,7 @@ export default {
     },
 
     navigateNext() {
+      this.moveToTop()
       if ( this.$route.name === 'firstStep' ){ this.$router.push('/second-step') }
       else if ( this.$route.name === 'secondStep' ) { this.$router.push('/third-step') }
       else if ( this.$route.name === 'thirdStep' ) {this.$router.push('/fourth-step') }
@@ -206,6 +220,7 @@ export default {
       }
     },
     navigatePrevious() {
+      this.moveToTop()
       if (this.$route.name === 'firstStep'){
         this.$router.push('/')
       }
