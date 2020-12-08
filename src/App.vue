@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     moveToTop: function() {
-        const duration = 500;  // 移動速度（1秒で終了）
+        const duration = 300;  // 移動速度
         const interval = 25;    // 0.025秒ごとに移動
         const step = -window.scrollY / Math.ceil(duration / interval); // 1回に移動する距離
         const timer = setInterval(() => {
